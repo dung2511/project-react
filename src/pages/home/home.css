@@ -1,0 +1,17 @@
+img {
+    width: 100%;
+}
+#main {
+    padding: 0 144px;
+    margin-top: 12px;
+}
+.main-trademark {
+    margin-top: 12px;
+}
+.item-trademark:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.item-trademark {
+    
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
