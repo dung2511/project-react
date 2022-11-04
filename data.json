@@ -1,0 +1,52 @@
+{
+  "product-home": [
+    {
+      "id": 1,
+      "name": "Sofa Cabo 3 chỗ vải MB2041-9 PMA170078",
+      "price": "34,500,000đ",
+      "url": "assets/image/SOFA-CABO-3-CHO-VAI-MB2041-9-PMA170078.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Tủ tivi Cabo PMA712042-2",
+      "price": "21,000,000đ",
+      "url": "assets/image/TU-TIVI-CABO-PMA712042-2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Sofa combo góc trái vải 2041 9",
+      "price": "37,900,000đ",
+      "url":"assets/image/sofa-combo-goc-boc-vai-xanh-dep-hien-dai-4.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Bàn ăn Peak hiện đại mặt Ceramic vân mây",
+      "price": "44,900,000đ",
+      "url":"assets/image/ban-an-peak-van-may-hien-dai-ceramic.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Sofa Combo 3 chỗ da Bali 520",
+      "price": "59,900,000đ",
+      "url":"assets/image/Sofa-Combo-3-cho-da-Bali-520-1.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Ghế ăn Peak vải xanh",
+      "price": "4,500,000đ",
+      "url":"assets/image/ghe-an-peak-mau-xanh-1.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Tủ ly Barbier Walnut 410043Z",
+      "price": "49,500,000đ",
+      "url":"assets/image/TU-LY-BARBIER-WALNUT-410043Z-1.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Giường ngủ Dubai 1m6 bọc vải MB",
+      "price": "14,500,000đ",
+      "url":"assets/image/GIUONG-DUBAI-1.6M-VAI-MB-LA275-17.jpg"
+    }
+  ]
+}

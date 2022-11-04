@@ -1,50 +1,51 @@
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./home.css";
+import { Link } from "react-router-dom";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+// import Slider from "react-slick";
+// import Button from "react-bootstrap/Button";
+
 const Home = () => {
+  document.title = "HomeBeauty"
+  // var carousel = {
+  //   dots: true,
+  //   infinite: false,
+  //   speed: 2000,
+  //   slidesToShow: 4,
+  //   slidesToScroll: 3,
+  //   initialSlide: 0,
+  //   responsive: [
+  //     {
+  //       breakpoint: 1024, // chiều rộng màn hình mà giao diện có thể chuyển đổi
+  //       carousel: {
+  //         slidesToShow: 3,
+  //         slidesToScroll: 3,
+  //         infinite: true,
+  //         dots: true,
+  //       },
+  //     },
+  //     {
+  //       breakpoint: 600,
+  //       carousel: {
+  //         slidesToShow: 2,
+  //         slidesToScroll: 2,
+  //         initialSlide: 2,
+  //       },
+  //     },
+  //     {
+  //       breakpoint: 480,
+  //       carousel: {
+  //         slidesToShow: 1,
+  //         slidesToScroll: 1,
+  //       },
+  //     },
+  //   ],
+  // };
   return (
-    <main id="main">
-      <section className="main-banner">
-        <Carousel>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="assets/image/banner-1.jpg"
-              alt="First slide"
-            />
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="assets/image/bannerlogo.jpg"
-              alt="Second slide"
-            />
-          </Carousel.Item>
-        </Carousel>
-      </section>
-      <section className="main-trademark">
-        <div className="row list-trademark d-flex justify-content-between">
-          <div className="col-2 item-trademark d-flex justify-content-center">
-            <img src="assets/image/thtruemilk.png" alt="" />
-          </div>
-          <div className=" col-2 item-trademark d-flex justify-content-center">
-            <img src="assets/image/thtruemilk.png" alt="" />
-          </div>
-          <div className=" col-2 item-trademark d-flex justify-content-center">
-            <img src="assets/image/thtruemilk.png" alt="" />
-          </div>
-          <div className=" col-2 item-trademark d-flex justify-content-center">
-            <img src="assets/image/thtruemilk.png" alt="" />
-          </div>
-          <div className="col-2 item-trademark d-flex justify-content-center">
-            <img src="assets/image/thtruemilk.png" alt="" />
-          </div>
-          <div className="col-2 item-trademark d-flex justify-content-center">
-            <img src="assets/image/thtruemilk.png" alt="" />
-          </div>
-        </div>
-      </section>
-    </main>
+    <></>
   );
 };
 export default Home;
+

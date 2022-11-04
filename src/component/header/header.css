@@ -1,6 +1,37 @@
-#header {
-    padding: 0 144px;
+* {
+  box-sizing: border-box;
 }
-.container-fluid {
-    padding: 0;
+body {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.header-container {
+    padding: 10px 0;
+}
+.header-logo a img {
+  width: 50%;
+    height: auto;
+}
+.header-input-search {
+    display: flex;
+    align-items: center;
+}
+.header-input-search input{
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid;
+}
+.header-hotline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header-icon-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
