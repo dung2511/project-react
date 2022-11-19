@@ -1,42 +1,97 @@
+body {
+  font-family: "roboto";
+}
 img {
   width: 100%;
   height: 100%;
 }
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 #home {
+  margin-top: 12px;
+}
+.home-owl-stage {
+  margin-top: 10px;
   padding: 0 144px;
-  margin-top: 12px;
 }
-.home-trademark {
-  margin-top: 12px;
-  height: 100px;
+.home-owl-item {
+  padding: 0 5px;
 }
-.item-trademark:hover {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  transform: scale(1.1);
+.home-product-feature,
+.home-product-sold,
+.home-product-promotion {
+  margin-top: 50px;
+  padding: 0 108px;
 }
-.item-trademark {
-  transition: 0.3s;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+.home-item-product-feature {
+  height: auto;
 }
-.home-featured {
-    margin-top: 12px;
+.home-item-feature-name {
+  height: 28px;
 }
-.featured-title h2{
-    color: #6495ED!important;
-    transition: 0.7s;
-    text-align: center;
+.card-text {
+  margin-bottom: 0;
 }
-.featured-title :hover{
-    color: #1A62E2;
+.slick-slide {
+  padding: 0 5px;
 }
-.slick-track {
-  width: auto !important;
+.home-title-section {
+  text-align: center;
+  margin: 30px;
 }
-.home-item-featured {
-  width: 100%;
+.home-title-section a {
+  padding: 8px;
+  border-top: 1px solid #034b4e;
+  border-bottom: 1px solid #034b4e;
+  color: #07bac1;
+  font-weight: 600;
 }
-
+.home-item-product-feature {
+  display: inline-block;
+  position: relative;
+}
+.home-btn-item-product {
+  position: absolute;
+  top: 60%;
+  cursor: pointer;
+  transform: translate(0);
+  display: none;
+}
+.home-item-product-feature:hover .home-btn-item-product {
+  display: block;
+}
+.home-add-to-card {
+  background-color: #2f6fea;
+  border: none;
+  margin-right: 5px;
+}
+.home-add-to-card:hover {
+  background-color: #3f79eb;
+}
+.home-buy-now {
+  background-color: #eb4e2d;
+  border: none;
+  margin-left: 5px;
+}
+.home-buy-now a {
+  color: #f7f7f7;
+}
+.home-buy-now:hover {
+  background-color: #ec5b3d;
+  color: #f7f7f7;
+}
+.home-item-product-price {
+  display: flex;
+  align-items: flex-end;
+}
+.home-item-price {
+  font-size: 2vh;
+  margin-bottom: 0;
+  text-decoration: line-through;
+}
+.home-item-price-promotion {
+  margin-right: 10px;
+  margin-bottom: 0;
+  font-size: 2.5vh;
+}

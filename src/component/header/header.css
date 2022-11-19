@@ -8,30 +8,41 @@ img {
   max-width: 100%;
   display: block;
 }
-
+.container {
+  padding: 0;
+}
 .header-container {
-    padding: 10px 0;
+  padding: 10px 0;
 }
 .header-logo a img {
   width: 50%;
-    height: auto;
+  height: auto;
+  padding: 0 8px;
 }
 .header-input-search {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
-.header-input-search input{
-    width: 100%;
-    border-radius: 10px;
-    border: 1px solid;
+.header-input-search input {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid;
 }
 .header-hotline {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .header-icon-user {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.header-icon-user button {
+  margin-left: 5px;
+}
+.me-auto {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
