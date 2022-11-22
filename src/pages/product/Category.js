@@ -1,13 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-const Category = ({ setCategory, setSelectPrice, setOrder }) => {
+const Category = ({ setSelectPrice, setOrder }) => {
   const [listSort, setListSort] = useState();
+  // const [listCategory, setListCategory] = useState();
   useEffect(() => {
     try {
       axios({
         method: "get",
-        url: "http://localhost:3004/category",
+        url: `http://localhost:3004/sort_price`,
       }).then(function (res) {
         setListSort(res.data);
       });
@@ -17,10 +18,10 @@ const Category = ({ setCategory, setSelectPrice, setOrder }) => {
   }, []);
 
   const handleSort = (e) => {
-    console.log(e.target.value);
-    setSelectPrice("price");
+    // console.log(e.target.value);
+    setSelectPrice("price"); // lấy price trong từng sản phẩm
     if (e.target.value === "Mặc định") {
-      setOrder();
+      setOrder(setSelectPrice);
     } else if (e.target.value === "Giá từ thấp tới cao") {
       setOrder("asc");
     } else {
@@ -31,7 +32,7 @@ const Category = ({ setCategory, setSelectPrice, setOrder }) => {
     <select onChange={handleSort} className="product-category">
       {listSort &&
         listSort.map((value, index) => {
-          // console.log(item);
+          // console.log(value);
           return (
             <option key={index} value={value} className="product-category-item">
               {value}

@@ -124,7 +124,11 @@
       "id": 1,
       "name": "Ghế Phòng Khách",
       "price": 2000000,
-      "url": "assets/image/ghe-phong-khach.webp"
+      "url": "assets/image/ghe-phong-khach.webp",
+      "img_detail_1":"assets/image/ghe-phong-khach-1.jpg",
+      "img_detail_2":"assets/image/ghe-phong-khach-2.jpg",
+      "img_detail_3":"assets/image/ghe-phong-khach-3.jpg"
+
     },
     {
       "id": 2,
@@ -229,7 +233,7 @@
       "url": "assets/image/bo-ban-an-mat-da-cam-cao-cap.jpg"
     }
   ],
-  "category": [
+  "sort_price": [
     "Mặc định",
     "Giá từ thấp tới cao",
     "Giá từ cao tới thấp"

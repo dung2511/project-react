@@ -14,27 +14,26 @@ import {
 import Category from "./Category";
 const Product = () => {
   const [productAll, setproductAll] = useState("");
-  const [category, setCategory] = useState();
+  // const [category, setCategory] = useState();
   const [selectPrice, setSelectPrice] = useState();
   const [order, setOrder] = useState();
   useEffect(() => {
     try {
       axios({
         method: "get",
-        url: "http://localhost:3004/product-all",
+        url: `http://localhost:3004/product-all?_sort=${selectPrice}&_order=${order}`,
         param: {
-          category: category,
           _sort: selectPrice,
           _order: order,
         },
       }).then(function (res) {
-        // console.log(res.headers);
         setproductAll(res.data);
       });
     } catch (error) {
       console.log(error);
     }
-  }, [category, selectPrice, order]);
+  }, [selectPrice, order]);
+  document.title= 'Tất cả sản phẩm'
   return (
     <main id="product">
       <section className="flow-user">
@@ -71,7 +70,7 @@ const Product = () => {
               <div className="product_category">
                 Xếp theo:{" "}
                 <Category
-                  setCategory={setCategory}
+                  // setCategory={setCategory}
                   setSelectPrice={setSelectPrice}
                   setOrder={setOrder}
                 />
@@ -85,7 +84,10 @@ const Product = () => {
                         key={index}
                       >
                         <div className="product-item-list">
-                          <img alt="Card cap" src={item.url} width="100%" />
+                          <Link to={`/product/${item.id}`}>
+                            <img alt="Card cap" src={item.url} width="100%" />
+                          </Link>
+
                           <CardBody>
                             <CardTitle className="home-item-feature-name">
                               {item.name}
@@ -98,7 +100,7 @@ const Product = () => {
                                 Add to Cart
                               </Button>
                               <Button className="home-buy-now">
-                                <Link to="/">Buy Now</Link>
+                                <div>Buy Now</div>
                               </Button>
                             </div>
                           </CardBody>
@@ -111,6 +113,7 @@ const Product = () => {
           </Row>
         </div>
       </section>
+      
     </main>
   );
 };

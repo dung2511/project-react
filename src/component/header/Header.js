@@ -41,7 +41,7 @@ const Header = () => {
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
                   <NavDropdown title="Sản phẩm" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">
+                    <NavDropdown.Item href="/product">
                       Action
                     </NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">
