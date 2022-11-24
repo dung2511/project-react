@@ -6,15 +6,15 @@ import "./product.css";
 import {
   Card,
   CardBody,
-  CardLink,
-  CardSubtitle,
   CardText,
   CardTitle,
 } from "reactstrap";
 import Category from "./Category";
+import { buyProduct } from "../action/cartAction";
+import { useDispatch } from "react-redux";
 const Product = () => {
+  const dispatch = useDispatch();
   const [productAll, setproductAll] = useState("");
-  // const [category, setCategory] = useState();
   const [selectPrice, setSelectPrice] = useState();
   const [order, setOrder] = useState();
   useEffect(() => {
@@ -78,6 +78,12 @@ const Product = () => {
               <div className="product-list-item">
                 {productAll &&
                   productAll.map((item, index) => {
+                    const product_current = {
+                      id: item.id,
+                      name: item.name,
+                      price: item.price,
+                      url: item.url
+                    }
                     return (
                       <Card
                         className="home-item-product-feature product-item-all-list"
@@ -96,7 +102,7 @@ const Product = () => {
                               {item.price}đ
                             </CardText>
                             <div className="home-btn-item-product">
-                              <Button className="home-add-to-card">
+                              <Button className="home-add-to-card" onClick={() => dispatch(buyProduct(product_current))}>
                                 Add to Cart
                               </Button>
                               <Button className="home-buy-now">

@@ -1,11 +1,14 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Col, Row } from "reactstrap";
 import "./details.css";
+import "./updateImg";
+
 const Detail = () => {
   const param = useParams(); // lấy ID
   const [detailProduct, setDetailProduct] = useState("");
+
   useEffect(() => {
     try {
       axios({
@@ -20,6 +23,7 @@ const Detail = () => {
     }
   }, []);
   document.title = detailProduct.name;
+
   return (
     <main id="details">
       <section className="flow-user">
@@ -31,15 +35,39 @@ const Detail = () => {
           <Row>
             <Col xs={6}>
               <div className="detail-product-img_0">
-                <img src={detailProduct.url} alt={detailProduct.name} />
+                <img
+                  className="detail-img_feature"
+                  src={detailProduct.img_detail_1}
+                  alt={detailProduct.name}
+                />
               </div>
               <div className="detail-product-img_2">
-                <img
-                  src="https://salt.tikicdn.com/cache/750x750/ts/product/02/6e/fe/afc3de59c477638a510370165ed5ce96.jpg.webp"
-                  alt=""
-                />
-                <img src={detailProduct.img_detail_2} alt="" />
-                <img src={detailProduct.img_detail_3} alt="" />
+                <div className="detail-item-img">
+                  <img src={detailProduct.img_detail_1} />
+                </div>
+                <div className="detail-item-img">
+                  <img src={detailProduct.img_detail_2} />
+                </div>
+                <div className="detail-item-img">
+                  <img src={detailProduct.img_detail_3} />
+                </div>
+                <div className="detail-item-img">
+                  <img src={detailProduct.img_detail_4} />
+                </div>
+              </div>
+            </Col>
+            <Col xs={6}>
+              <div className="detail-product-title">
+                <div className="detail-product_name">
+                  <h3>{detailProduct.name}</h3>
+                </div>
+                <div className="detail-product_price">
+                  {detailProduct.price}đ
+                </div>
+                <div className="detail-product_detail">
+                  {detailProduct.description}
+                </div>
+                  
               </div>
             </Col>
           </Row>

@@ -2,3 +2,11 @@
   padding: 0 108px;
   margin-bottom: 12px;
 }
+.detail-product-img_2 {
+  display: flex;
+  justify-content: flex-start;
+}
+.detail-product-img_2 img{
+  width: 80%;
+  padding: 12px 12px 0 0;
+}

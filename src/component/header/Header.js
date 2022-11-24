@@ -24,7 +24,9 @@ const Header = () => {
               <Link>0389851108</Link>
             </Col>
             <Col className="header-icon-user" sm="3">
-              <Button>Giỏ hàng</Button>
+              <Button>
+                <Link to={'/cart'}>Giỏ hàng</Link>
+              </Button>
               <Link>
                 <Button>Đăng Nhập</Button>
               </Link>
