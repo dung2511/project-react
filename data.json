@@ -122,14 +122,19 @@
   "product-all": [
     {
       "id": 1,
-      "name": "Ghế Phòng Khách",
+      "name": "Ghế nằm thư giãn",
       "price": 2000000,
-      "url": "assets/image/ghe-phong-khach.webp",
+      "url": "assets/image/ghe-phong-khach-1.jpg",
+      "qty":100,
+      "feature":"Đang cập nhật",
       "img_detail_1": "https://salt.tikicdn.com/cache/750x750/ts/product/02/6e/fe/afc3de59c477638a510370165ed5ce96.jpg.webp",
       "img_detail_2": "https://salt.tikicdn.com/cache/750x750/ts/product/9b/8c/e7/341d3fd06bd20a6e549b08c8f216cd79.jpg.webp",
       "img_detail_3": "https://salt.tikicdn.com/cache/750x750/ts/product/ac/58/24/cfd3a93806d976b18bf29f172ba3225a.jpg.webp",
       "img_detail_4": "https://salt.tikicdn.com/cache/750x750/ts/product/c6/3a/6b/499f58f855463fc7b6aad330e42fd322.jpg.webp",
-      "description": " Chất liệu: Chân ghế gỗ tự nhiên, Vải, mút nhập khẩu 100%, Kích thước ghế: Dài 159 cm x Rộng 71.5 cm x Cao 68.8 cm, Kích thước đệm: Dài 79.6 cm x Rộng 75.5 cm, Kích thước gối: Dài 77 cm x Rộng 42.5 cm, Bảo hành: 5 năm, Đặt hàng: 5-7 ngày, Miễn phí Hà Nội - Tỉnh khác hỗ trợ 1 phần  "
+      "description": " Chất liệu: Chân ghế gỗ tự nhiên, Vải nhập khẩu 100%, Miễn phí Hà Nội - Tỉnh khác hỗ trợ 1 phần  ",
+      "kich-thuoc":"Chiều dài 1.6m, Chiều rộng 7.1m, Chiều Cao 6.8m",
+      "material":"Chân ghế gỗ tự nhiên",
+      "size": "D1600 - R715 - C688 mm"
     },
     {
       "id": 2,
