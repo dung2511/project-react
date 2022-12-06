@@ -32,6 +32,8 @@
     "reactjs-tailwind": "^0.1.9",
     "reactstrap": "^9.1.5",
     "redux": "^4.2.0",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.2",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.6",
     "tailwindcss": "^3.2.1",

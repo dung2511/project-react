@@ -9,3 +9,38 @@ td {
   border-collapse: collapse;
   border: 1px solid black;
 }
+.cart-manipulation,
+.cart-total-product,
+.cart-qty-product,
+.cart-name-product,
+.cart-img-product, .cart-price-product,.price-product {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+.cart-manipulation {
+  width: 10%;
+}
+.cart-total-product {
+  width: 15%;
+}
+.cart-qty-product {
+  width: 10%;
+}
+.cart-price-product {
+  width: 15%;
+}
+.cart-name-product {
+  width: 30%;
+}
+.cart-img-product {
+  width: 20%;
+}
+.cart-img-product > img {
+  width: 100px;
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

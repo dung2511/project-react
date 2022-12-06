@@ -1,17 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Button, Col, Row } from "reactstrap";
 import "./product.css";
-import {
-  Card,
-  CardBody,
-  CardText,
-  CardTitle,
-} from "reactstrap";
+import { Card, CardBody, CardText, CardTitle } from "reactstrap";
 import Category from "./Category";
-import { buyProduct } from "../action/cartAction";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { buyProduct } from "../../component/actions/cartActions";
+
 const Product = () => {
   const dispatch = useDispatch();
   const [productAll, setproductAll] = useState("");
@@ -33,7 +29,7 @@ const Product = () => {
       console.log(error);
     }
   }, [selectPrice, order]);
-  document.title= 'Tất cả sản phẩm'
+  document.title = "Tất cả sản phẩm";
   return (
     <main id="product">
       <section className="flow-user">
@@ -82,8 +78,8 @@ const Product = () => {
                       id: item.id,
                       name: item.name,
                       price: item.price,
-                      url: item.url
-                    }
+                      url: item.url,
+                    };
                     return (
                       <Card
                         className="home-item-product-feature product-item-all-list"
@@ -102,7 +98,10 @@ const Product = () => {
                               {item.price}đ
                             </CardText>
                             <div className="home-btn-item-product">
-                              <Button className="home-add-to-card" onClick={() => dispatch(buyProduct(product_current))}>
+                              <Button
+                                className="home-add-to-card"
+                                onClick={()=>dispatch(buyProduct(product_current))}
+                              >
                                 Add to Cart
                               </Button>
                               <Button className="home-buy-now">
@@ -119,7 +118,6 @@ const Product = () => {
           </Row>
         </div>
       </section>
-      
     </main>
   );
 };

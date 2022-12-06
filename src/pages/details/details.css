@@ -3,6 +3,16 @@
   margin-bottom: 12px;
   background-color: #FDFCF6;
 }
+.flow-user {
+  margin: 20px 0;
+}
+.flow-user a {
+  transition: 0.7s;
+  color: #666;
+}
+.flow-user a:hover {
+  color: #444;
+}
 .detail-product-img_2 {
   display: flex;
   justify-content: flex-start;
@@ -16,6 +26,9 @@
 .detail-product-title {
   background: #ededed;
   padding: 20px 12px;
+}
+.detail-product_name h1{
+  color: #0a0a0b;
 }
 .detail-btn-amount p {
   margin: 0;
@@ -101,6 +114,19 @@ input[type="number"]::-webkit-outer-spin-button {
   padding-left: 6px;
   color: #046b6f;
   font-weight: 600;
+}
+.detail-product_transport {
+  margin-top: 20px;
+  height: fit-content;
+  width:100%;
+  background: #fff;
+  float: left;
+}
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+  color: #222 !important;
+}
+.css-1aquho2-MuiTabs-indicator {
+  background-color: #046b6f !important;
 }
 .d-flex {
   display: flex;

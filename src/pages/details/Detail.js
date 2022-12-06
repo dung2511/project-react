@@ -178,30 +178,30 @@ const Detail = () => {
                   </Link>
                   <button className="detail-add_to_cart">Thêm giỏ hàng</button>
                 </div>
-                <div className="detail-product">
-                  <Box sx={{ width: "100%" }}>
-                    <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-                      <Tabs
-                        value={value}
-                        onChange={handleChange}
-                        aria-label="basic tabs example"
-                      >
-                        <Tab label="Item One" {...a11yProps(0)} />
-                        <Tab label="Item Two" {...a11yProps(1)} />
-                        <Tab label="Item Three" {...a11yProps(2)} />
-                      </Tabs>
-                    </Box>
-                    <TabPanel value={value} index={0}>
-                      Item One
-                    </TabPanel>
-                    <TabPanel value={value} index={1}>
-                      Item Two
-                    </TabPanel>
-                    <TabPanel value={value} index={2}>
-                      Item Three
-                    </TabPanel>
+              </div>
+              <div className="detail-product_transport">
+                <Box sx={{ width: "100%" }}>
+                  <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                    <Tabs
+                      value={value}
+                      onChange={handleChange}
+                      aria-label="basic tabs example"
+                    >
+                      <Tab label="Mô tả" {...a11yProps(0)} />
+                      <Tab label="Vận chuyển" {...a11yProps(1)} />
+                    </Tabs>
                   </Box>
-                </div>
+                  <TabPanel value={value} index={0}>
+                    - {detailProduct.material} <br />-{" "}
+                    {detailProduct.kich_thuoc} <br /> - {detailProduct.bao_hanh}
+                  </TabPanel>
+                  <TabPanel value={value} index={1}>
+                    GIAO HÀNG TẬN NƠI <br /> - MIỄN PHÍ giao hàng trong các Quận
+                    nội thành Tp.Hồ Chí Minh và Hà Nội, áp dụng cho các đơn hàng
+                    trị giá trên 5   triệu. <br />- Đối với khu vực các tỉnh lân
+                    cận: Tính phí hợp lý theo dựa trên quãng đường vận chuyển
+                  </TabPanel>
+                </Box>
               </div>
             </Col>
           </Row>
