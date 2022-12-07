@@ -7,9 +7,9 @@ const item = localStorage.getItem("cartItem")
 const totalAmount = localStorage.getItem("totalAmount")
   ? JSON.parse(localStorage.getItem("totalAmount"))
   : [];
-const totalQty = localStorage.getItem("totalQty")
-  ? JSON.parse(localStorage.getItem("totalQty"))
-  : [];
+// const totalQty = localStorage.getItem("totalQty")
+//   ? JSON.parse(localStorage.getItem("totalQty"))
+//   : [];
 const setItemFunc = (item, totalAmount, totalQty) => {
   localStorage.setItem("cartItem", JSON.stringify(item));
   localStorage.setItem("totalAmount", JSON.stringify(totalAmount));
@@ -17,28 +17,24 @@ const setItemFunc = (item, totalAmount, totalQty) => {
 };
 const initialState = {
   cartArray: item,
-  totalQty: totalQty,
+  // totalQty: totalQty,
   totalAmount: totalAmount,
 };
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART: {
-      console.log(action);
-      const newItem = action.payload;
       const productInCart = state.cartArray.find(
         (item) => (item.id = action.payload.id)
       );
-      state.totalQty++;
       if (!productInCart) {
-        console.log(state.cartArray);
-        return {
-          cartArray: [...state.cartArray, action.payload],
-        };
+        const newItem = action.payload;
+        return(state.cartArray.push(productInCart))
       } else {
-        const newCart = state.cartArray;
+        const newCart = action.payload;
         const objIndex = newCart.findIndex(
           (obj) => obj.id === action.payload.id
         );
+        
       }
 
       state.totalAmount = state.cartArray.reduce(
