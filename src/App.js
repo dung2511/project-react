@@ -5,6 +5,7 @@ import Detail from "./pages/details/Detail";
 import Home from "./pages/home/Home";
 import Layout from "./pages/Layout";
 import Product from "./pages/product/Product";
+import ListSearch from "./pages/search/ListSearch";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/product" element={<Product />} />
           <Route path="product/:id" element={<Detail />} />
           <Route path="cart" element={<Cart />} />
+          <Route path="search/:keyword" element={<ListSearch/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

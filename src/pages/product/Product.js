@@ -14,6 +14,7 @@ const Product = () => {
   const [selectPrice, setSelectPrice] = useState();
   const [order, setOrder] = useState();
   useEffect(() => {
+    document.title = "Tất cả sản phẩm";
     try {
       axios({
         method: "get",
@@ -29,7 +30,6 @@ const Product = () => {
       console.log(error);
     }
   }, [selectPrice, order]);
-  document.title = "Tất cả sản phẩm";
   return (
     <main id="product">
       <section className="flow-user">

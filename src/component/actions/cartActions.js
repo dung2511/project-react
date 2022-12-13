@@ -1,4 +1,6 @@
-import { ADD_TO_CART, DELETE_PRODUCT } from "./actionTypes";
+
+import axios from "axios";
+import { ADD_TO_CART, ALL_PRODUCT_REQUEST, DELETE_PRODUCT } from "./actionTypes";
 
 export const buyProduct = (product) => {
   return {
@@ -12,25 +14,13 @@ export const deleteProduct = (product) => {
     payload: product,
   };
 };
-// => async (dispatch)
-// kiểm tra cart
-// const cart = localStorage.getItem("cart") ? localStorage.getItem("cart") : [];
-// // check if duplicates (trùng lặp)
-// const duplicates = cart.filter((cartItem) => cartItem.id === product.id);
-// // check if no duplicates, proceed
-// if (duplicates.length === 0) {
-//   // prep product data ( cb dữ liệu sản phẩm)
-//   const productToAdd = {
-//     ...product,
-//     count: 1,
-//   };
-//   // add product data to cart
-//   cart.push(productToAdd);
-//   // add cart to local storage
-//   localStorage.setItem("cart", JSON.stringify(cart));
-//   // add cart to redux
-//   dispatch({
-//     type: ADD_TO_CART,
-//     payload: cart,
-//   });
-// }
+export const getProduct = (currentPage = 1) => async (dispatch) => {
+  try {
+    dispatch({
+      type: ALL_PRODUCT_REQUEST
+    })
+    const {data} = await axios.get
+  } catch (error) {
+    
+  }
+}  

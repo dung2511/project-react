@@ -62,8 +62,9 @@ const Detail = () => {
       console.log(error);
     }
   }, []);
-  document.title = detailProduct.name;
+ 
   useEffect(() => {
+    document.title = detailProduct.name;
     var imgFeature = document.querySelector(".detail-img_feature");
     var listImg = document.querySelectorAll(".detail-product-img_2 img");
     var currentIndex = 0;

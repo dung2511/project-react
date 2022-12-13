@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import "./header.css";
@@ -6,7 +6,10 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import React, { useState } from "react";
+import { Route } from "react-router-dom";
+import Search from "../../pages/search/Search";
 const Header = () => {
+  const [keyword, setKeyword] = useState("");
   return (
     <>
       <header>
@@ -18,14 +21,14 @@ const Header = () => {
               </Link>
             </Col>
             <Col className="header-input-search" sm="3" xs="12">
-              <input type="text" name="search" />
+              <Search setKeyword={setKeyword} />
             </Col>
             <Col className="header-hotline">
               <Link>0389851108</Link>
             </Col>
             <Col className="header-icon-user" sm="3">
               <Button>
-                <Link to={'/cart'}>Giỏ hàng</Link>
+                <Link to={"/cart"}>Giỏ hàng</Link>
               </Button>
               <Link>
                 <Button>Đăng Nhập</Button>
@@ -43,9 +46,7 @@ const Header = () => {
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
                   <NavDropdown title="Sản phẩm" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="/product">
-                      Action
-                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/product">Action</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">
                       Another action
                     </NavDropdown.Item>
