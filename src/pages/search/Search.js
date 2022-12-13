@@ -1,12 +1,25 @@
-import React from 'react'
+import React, { createContext, useState } from "react";
+import { Provider } from "react-redux";
 
-const Search = ({setKeyword}) => {
+// use Context
+export const ThemeContext = createContext();
+console.log(ThemeContext);
+const Search = () => {
+  const [keyword, setKeyword] = useState("");
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setKeyword(e.tartget.value);
+  };
+
   return (
-    <form>
-        <input type="" name=""/>
+    <ThemeContext.Provider value={keyword}>
+      <form action={`/search/${keyword}`}>
+        <input type="" name="" onChange={handleChange} />
         <input type="submit" name="" />
-    </form>
-  )
-}
+      </form>
+    </ThemeContext.Provider>
+  );
+};
 
-export default Search
+export default Search;

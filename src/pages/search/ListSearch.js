@@ -1,20 +1,22 @@
 import axios from "axios";
 import { get } from "jquery";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Card, CardBody, CardText, CardTitle, Col, Row } from "reactstrap";
 import Category from "../product/Category";
+import {ThemeContext} from "./Search";
 
 const ListSearch = () => {
   const [productSearch, setProductSearch] = useState();
-  const [keyword, setKeyword] = useState("");
+  // Lấy Context từ Search
+  const keyword = useContext(ThemeContext);
   useEffect(() => {
     try {
       axios({
         method: "get",
-        url: `http://localhost:3004/product-all?q=${keyword}`,
+        url: `http://localhost:3004/product-all?q=${keyword}}`,
       }).then(function (res) {
-        console.log(res.data);
+        console.log(res);
         setProductSearch(res.data);
       });
     } catch (error) {
