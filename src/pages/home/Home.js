@@ -90,7 +90,7 @@ const Home = () => {
     } catch (error) {
       throw new Error(error);
     }
-  });
+  },[]);
   return (
     <main id='home'>
       <section className="home-container-banner">
