@@ -1,13 +1,19 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Table } from "reactstrap";
-import { deleteProduct } from "../../component/actions/cartActions";
+import { Cartcontext } from "../../component/reducer/cartReducer";
 import "./cart.css";
 const Cart = () => {
-  const product_current = useSelector((state) => state);
-  console.log(product_current);
-  const dispatch = useDispatch();
+  const formatPrice = new Intl.NumberFormat("vi", {
+    style:"currency", 
+    currency:"VND"
+  })
+  const Globalstate = useContext(Cartcontext);
+  const state = Globalstate.state;
+  const dispatch = Globalstate.dispatch;
+  const total = state.reduce((total, item) => {
+    return total + item.price * item.quantity;
+  }, 0);
   return (
     <main id="cart">
       <section className="flow-user">
@@ -26,24 +32,50 @@ const Cart = () => {
             </tr>
           </thead>
           <tbody>
-            {product_current.cart.cartArray.length > 0 ? (
-              product_current.cart.cartArray.map((item) => {
-                // console.log(item);
+            {state.length > 0 ? (
+              state.map((item, index) => {
                 return (
-                  <tr key={item.id}>
-                    <td scope="row" className="cart-img-product">
+                  <tr key={index}>
+                    <th className="cart-img-product" scope="row">
                       <img src={item.url} alt="" />
-                    </td>
+                    </th>
                     <td className="cart-name-product">{item.name}</td>
-                    <td className="cart-price-product">{item.price}</td>
-                    <td className="cart-qty-product">1</td>
-                    <td className="cart-total-product">Tổng tiền</td>
-                    <td className="cart-manipulation">
+                    <td className="price-product">{formatPrice.format(item.price)}</td>
+                    <td className="cart-qty-product">
                       <button
+                        onClick={() => {
+                          if (item.quantity > 1) {
+                            dispatch({ type: "DECREASE", payload: item });
+                          } else {
+                            dispatch({ type: "REMOVE", payload: item });
+                          }
+                        }}
                         type=""
-                        // onClick={() => dispatch(()=> dispatch(deleteProduct(item)))}
                       >
-                        delete
+                        -
+                      </button>
+                      {item.quantity}
+                      <button
+                        onClick={() =>
+                          dispatch({ type: "INCREASE", payload: item })
+                        }
+                        type=""
+                      >
+                        +
+                      </button>
+                    </td>
+                    <td className="cart-total-product">
+                      {formatPrice.format(item.quantity * item.price)}
+                    </td>
+                    <td className="cart-manipulation">
+                      {" "}
+                      <button
+                        onClick={() =>
+                          dispatch({ type: "REMOVE", payload: item })
+                        }
+                        type=""
+                      >
+                        X
                       </button>
                     </td>
                   </tr>
@@ -60,6 +92,10 @@ const Cart = () => {
             )}
           </tbody>
         </Table>
+      </section>
+      <section className="cart-total">Tổng tiền thanh toán: {formatPrice.format(total)}</section>
+      <section className="go_to_payment">
+        <Link to={'/payment'}>Thanh toán</Link>
       </section>
     </main>
   );

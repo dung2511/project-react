@@ -41,8 +41,11 @@ function a11yProps(index) {
   };
 }
 const Detail = () => {
+  const formatPrice = new Intl.NumberFormat("vi", {
+    style: "currency",
+    currency: "VND",
+  });
   const [value, setValue] = React.useState(0);
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -62,7 +65,7 @@ const Detail = () => {
       console.log(error);
     }
   }, []);
- 
+
   useEffect(() => {
     document.title = detailProduct.name;
     var imgFeature = document.querySelector(".detail-img_feature");
@@ -82,11 +85,6 @@ const Detail = () => {
       });
     });
     updateImg(0);
-    document.querySelector(".detail-product_price").innerHTML =
-      new Intl.NumberFormat("vi", {
-        style: "currency",
-        currency: "VND",
-      }).format(detailProduct.price);
     if (detailProduct.qty > 0) {
       document.querySelector(".detail-product_update_2").innerHTML = "Còn hàng";
     } else {
@@ -149,7 +147,9 @@ const Detail = () => {
                     Tình trạng: <p className="detail-product_update_2"></p>
                   </span>
                 </div>
-                <div className="detail-product_price" />
+                <div className="detail-product_price">
+                  {formatPrice.format(detailProduct.price)}
+                </div>
                 <div className="detail-product_detail">
                   <div className="detail-product_material d-flex align-item-end">
                     <h5 className="mb-0">Vật liệu</h5>
@@ -199,7 +199,7 @@ const Detail = () => {
                   <TabPanel value={value} index={1}>
                     GIAO HÀNG TẬN NƠI <br /> - MIỄN PHÍ giao hàng trong các Quận
                     nội thành Tp.Hồ Chí Minh và Hà Nội, áp dụng cho các đơn hàng
-                    trị giá trên 5   triệu. <br />- Đối với khu vực các tỉnh lân
+                    trị giá trên 5 triệu. <br />- Đối với khu vực các tỉnh lân
                     cận: Tính phí hợp lý theo dựa trên quãng đường vận chuyển
                   </TabPanel>
                 </Box>

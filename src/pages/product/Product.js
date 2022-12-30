@@ -1,15 +1,20 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Button, Col, Row } from "reactstrap";
 import "./product.css";
 import { Card, CardBody, CardText, CardTitle } from "reactstrap";
 import Category from "./Category";
-import { useDispatch, useSelector } from "react-redux";
-import { buyProduct } from "../../component/actions/cartActions";
+import { useDispatch } from "react-redux";
+import { Cartcontext } from "../../component/reducer/cartReducer";
 
 const Product = () => {
-  const dispatch = useDispatch();
+  const formatPrice = new Intl.NumberFormat("vi", {
+    style:"currency", 
+    currency:"VND"
+  })
+  const Globalstate = useContext(Cartcontext);
+  const dispatch = Globalstate.dispatch;
   const [productAll, setproductAll] = useState("");
   const [selectPrice, setSelectPrice] = useState();
   const [order, setOrder] = useState();
@@ -30,6 +35,7 @@ const Product = () => {
       console.log(error);
     }
   }, [selectPrice, order]);
+  console.log(productAll);
   return (
     <main id="product">
       <section className="flow-user">
@@ -65,21 +71,12 @@ const Product = () => {
               <h3>Tất cả sản phẩm</h3>
               <div className="product_category">
                 Xếp theo:{" "}
-                <Category
-                  // setCategory={setCategory}
-                  setSelectPrice={setSelectPrice}
-                  setOrder={setOrder}
-                />
+                <Category setSelectPrice={setSelectPrice} setOrder={setOrder} />
               </div>
               <div className="product-list-item">
                 {productAll &&
                   productAll.map((item, index) => {
-                    const product_current = {
-                      id: item.id,
-                      name: item.name,
-                      price: item.price,
-                      url: item.url,
-                    };
+                    item.quantity = 1
                     return (
                       <Card
                         className="home-item-product-feature product-item-all-list"
@@ -95,12 +92,14 @@ const Product = () => {
                               {item.name}
                             </CardTitle>
                             <CardText className="product-price">
-                              {item.price}đ
+                              {formatPrice.format(item.price)}
                             </CardText>
                             <div className="home-btn-item-product">
                               <Button
                                 className="home-add-to-card"
-                                onClick={()=>dispatch(buyProduct(product_current))}
+                                onClick={() =>
+                                  dispatch({ type: "ADD", payload: item })
+                                }
                               >
                                 Add to Cart
                               </Button>

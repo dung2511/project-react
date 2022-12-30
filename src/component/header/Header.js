@@ -1,4 +1,4 @@
-import { Link, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import "./header.css";
@@ -6,10 +6,8 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import React, { useState } from "react";
-import { Route } from "react-router-dom";
-import Search from "../../pages/search/Search";
+import InputSearch from "../../pages/search/InputSearch";
 const Header = () => {
-  const [keyword, setKeyword] = useState("");
   return (
     <>
       <header>
@@ -21,7 +19,7 @@ const Header = () => {
               </Link>
             </Col>
             <Col className="header-input-search" sm="3" xs="12">
-              <Search setKeyword={setKeyword} />
+              <InputSearch/>
             </Col>
             <Col className="header-hotline">
               <Link>0389851108</Link>

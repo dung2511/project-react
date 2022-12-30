@@ -1,0 +1,31 @@
+.payment {
+  padding: 0 144px;
+}
+.payment_info_user {
+  width: 100%;
+  display: flex;
+}
+
+.form_info_user {
+  width: 30%;
+  padding-right: 1rem;
+}
+.payment_info_product {
+  width: 40%;
+}
+.form_info_user > input {
+  width: 100%;
+  margin-top: 12px;
+}
+.payment_submit {
+  width: 50%;
+}
+.payment_note {
+    height: 5rem;
+}
+.payment_type {
+    width: 30%;
+}
+.select_city {
+    width: 100%;
+}

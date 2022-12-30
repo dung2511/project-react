@@ -3,8 +3,8 @@ import { Provider } from "react-redux";
 
 // use Context
 export const ThemeContext = createContext();
-console.log(ThemeContext);
-const Search = () => {
+// console.log(ThemeContext);
+const InputSearch = () => {
   const [keyword, setKeyword] = useState("");
 
   const handleChange = (e) => {
@@ -22,4 +22,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default InputSearch;

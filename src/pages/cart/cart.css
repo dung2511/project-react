@@ -44,3 +44,9 @@ td {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+.cart-qty-product button {
+  border: 1px solid gray;
+}
+.cart-total {
+  text-align: right;
+}
