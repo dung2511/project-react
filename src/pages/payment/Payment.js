@@ -24,16 +24,16 @@ const Payment = () => {
       }
     }
   };
-const handleChangeWard = (e) => {
-  e.preventDefault();
-  let xa = e.target.value;
-  for(let i in district) {
-    if(district[i].codename === xa) {
-    let xas = district[i].wards;
-    setCommune(xas)
+  const handleChangeWard = (e) => {
+    e.preventDefault();
+    let xa = e.target.value;
+    for (let i in district) {
+      if (district[i].codename === xa) {
+        let xas = district[i].wards;
+        setCommune(xas);
+      }
     }
-  }
-}
+  };
 
   const [city, setCity] = useState();
   const [district, setDistrict] = useState();
@@ -117,7 +117,7 @@ const handleChangeWard = (e) => {
               onChange={handleChange}
               id="city"
             >
-              <option selected disabled hidden>---Chọn Thành Phố---</option>
+              <option defaultValue={""}>---Chọn Thành Phố---</option>
               {city &&
                 city.map((city) => {
                   return (
@@ -133,7 +133,7 @@ const handleChangeWard = (e) => {
               onChange={handleChangeWard}
               id="district"
             >
-              <option defaultValue selected disabled hidden>---Chọn Quận Huyện---</option>
+              <option defaultValue={""}>---Chọn Quận Huyện---</option>
               {district &&
                 district.map((district) => {
                   return (
@@ -149,14 +149,18 @@ const handleChangeWard = (e) => {
               onChange={handleChange}
               id="commune"
             >
-              <option selected disabled hidden>---Chọn Xã---</option>
-              {commune && commune.map((ward) => {
-                return(
-                  <option key={ward.code} value={ward.codename}>{ward.name}</option>
-                )
-              })}
+              <option defaultValue={""}>---Chọn Xã---</option>
+              {commune &&
+                commune.map((ward) => {
+                  return (
+                    <option key={ward.code} value={ward.codename}>
+                      {ward.name}
+                    </option>
+                  );
+                })}
             </select>
           </div>
+
           <div className="payment_type">
             <h4>Vận chuyển</h4>
             <p>Vui lòng nhập thông tin thanh toán</p>
