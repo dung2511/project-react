@@ -35,7 +35,6 @@ const Product = () => {
       console.log(error);
     }
   }, [selectPrice, order]);
-  console.log(productAll);
   return (
     <main id="product">
       <section className="flow-user">

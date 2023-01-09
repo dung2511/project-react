@@ -4,53 +4,31 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Button, Col, Row } from "react-bootstrap";
-import {
-  Card,
-  CardBody,
-  CardLink,
-  CardSubtitle,
-  CardText,
-  CardTitle,
-} from "reactstrap";
+import { Button } from "react-bootstrap";
+import { Card, CardBody, CardText, CardTitle } from "reactstrap";
 import { useEffect, useState } from "react";
 import axios from "axios";
+
+const banner = [
+  {
+    url: "assets/image/banner_1.webp",
+  },
+  {
+    url: "assets/image/banner_2.webp",
+  },
+  {
+    url: "assets/image/banner_3.webp",
+  },
+  {
+    url: "assets/image/banner_4.webp",
+  },
+];
 const Home = () => {
   document.title = "HomeBeauty";
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+  const formatPrice = new Intl.NumberFormat("vi", {
+    style: "currency",
+    currency: "VND",
+  });
   const [productfeature, setProductfeature] = useState("");
   const [productSold, setProductSold] = useState("");
   const [productPromotion, setProductPromotion] = useState("");
@@ -67,32 +45,8 @@ const Home = () => {
       throw new Error(error);
     }
   }, []);
-  useEffect(() => {
-    try {
-      axios({
-        method: "get",
-        url: "http://localhost:3004/product-sold",
-      }).then(function (resp) {
-        setProductSold(resp.data);
-      });
-    } catch (error) {
-      throw new Error(error);
-    }
-  }, []);
-  useEffect(() => {
-    try {
-      axios({
-        method: "get",
-        url: "http://localhost:3004/product-promotion",
-      }).then(function (promotion) {
-        setProductPromotion(promotion.data);
-      });
-    } catch (error) {
-      throw new Error(error);
-    }
-  },[]);
   return (
-    <main id='home'>
+    <main id="home">
       <section className="home-container-banner">
         <div>
           <img src="assets/image/banner.jpg" alt="" />
@@ -100,125 +54,95 @@ const Home = () => {
       </section>
 
       <section className="home-owl-stage">
-        <Row>
-          <Col>
-            <div className="home-owl-item">
-              <img src="assets/image/banner_1.webp" alt="" />
-            </div>
-          </Col>
-          <Col>
-            <div className="home-owl-item">
-              <img src="assets/image/banner_2.webp" alt="" />
-            </div>
-          </Col>
-          <Col>
-            <div className="home-owl-item">
-              <img src="assets/image/banner_3.webp" alt="" />
-            </div>
-          </Col>
-          <Col>
-            <div className="home-owl-item">
-              <img src="assets/image/banner_4.webp" alt="" />
-            </div>
-          </Col>
-        </Row>
+        {banner &&
+          banner.map((item, index) => {
+            return (
+              <div key={index} className="home-owl-item">
+                <img src={item.url} alt="" />
+              </div>
+            );
+          })}
       </section>
       <section className="home-product-feature">
         <h3 className="home-title-section">
           <Link to={"/all-product-feature"}>Sản Phẩm Nổi Bật</Link>
         </h3>
-        <Slider {...settings}>
-          {productfeature &&
-            productfeature.map((item, index) => {
-              return (
-                <Card className="home-item-product-feature" key={index}>
-                  <div>
-                    <img alt="Card cap" src={item.url} width="100%" />
-                    <CardBody>
-                      <CardTitle className="home-item-feature-name">
-                        {item.name}
-                      </CardTitle>
-                      <CardText>{item.price}đ</CardText>
-                      <div className="home-btn-item-product">
-                        <Button className="home-add-to-card">
-                          Add to Cart
-                        </Button>
-                        <Button className="home-buy-now">
-                          <Link to="/">Buy Now</Link>
-                        </Button>
-                      </div>
-                    </CardBody>
-                  </div>
-                </Card>
-              );
-            })}
-        </Slider>
+        {productfeature &&
+          productfeature.map((item, index) => {
+            return (
+              <Card className="home-item-product-feature" key={index}>
+                <div>
+                  <img alt="Card cap" src={item.url} width="100%" />
+                  <CardBody>
+                    <CardTitle className="home-item-feature-name">
+                      {item.name}
+                    </CardTitle>
+                    <CardText>{formatPrice.format(item.price)}</CardText>
+                    <div className="home-btn-item-product">
+                      <Button className="home-add-to-card">Thêm vào giỏ</Button>
+                      <Button className="home-buy-now">
+                        <Link to="/">Mua ngay</Link>
+                      </Button>
+                    </div>
+                  </CardBody>
+                </div>
+              </Card>
+            );
+          })}
       </section>
-      <section className="home-product-sold">
+      <section className="home-product-feature">
         <h3 className="home-title-section">
-          <Link to={"/all-product-sold"}>Sản Phẩm Bán Chạy</Link>
+          <Link to={"/all-product-feature"}>Sản Phẩm Nổi Bật</Link>
         </h3>
-        <Slider {...settings}>
-          {productSold &&
-            productSold.map((item, index) => {
-              return (
-                <Card className="home-item-product-feature" key={index}>
-                  <div>
-                    <img alt="Card cap" src={item.url} width="100%" />
-                    <CardBody>
-                      <CardTitle className="home-item-feature-name">
-                        {item.name}
-                      </CardTitle>
-                      <CardText>{item.price}đ</CardText>
-                      <div className="home-btn-item-product">
-                        <Button className="home-add-to-card">
-                          Add to Cart
-                        </Button>
-                        <Button className="home-buy-now">
-                          <Link to="/">Buy Now</Link>
-                        </Button>
-                      </div>
-                    </CardBody>
-                  </div>
-                </Card>
-              );
-            })}
-        </Slider>
+        {productfeature &&
+          productfeature.map((item, index) => {
+            return (
+              <Card className="home-item-product-feature" key={index}>
+                <div>
+                  <img alt="Card cap" src={item.url} width="100%" />
+                  <CardBody>
+                    <CardTitle className="home-item-feature-name">
+                      {item.name}
+                    </CardTitle>
+                    <CardText>{formatPrice.format(item.price)}</CardText>
+                    <div className="home-btn-item-product">
+                      <Button className="home-add-to-card">Thêm vào giỏ</Button>
+                      <Button className="home-buy-now">
+                        <Link to="/">Mua ngay</Link>
+                      </Button>
+                    </div>
+                  </CardBody>
+                </div>
+              </Card>
+            );
+          })}
       </section>
-      <section className="home-product-promotion">
+      <section className="home-product-feature">
         <h3 className="home-title-section">
-          <Link to={"/all-product-sold"}>Sản Phẩm Khuyến mãi</Link>
+          <Link to={"/all-product-feature"}>Sản Phẩm Nổi Bật</Link>
         </h3>
-        <Slider {...settings}>
-          {productPromotion &&
-            productPromotion.map((item, index) => {
-              return (
-                <Card className="home-item-product-feature" key={index}>
-                  <div>
-                    <img alt="Card cap" src={item.url} width="100%" />
-                    <CardBody>
-                      <CardTitle className="home-item-feature-name">
-                        {item.name}
-                      </CardTitle>
-                      <div className="home-item-product-price">
-                      <CardText className="home-item-price-promotion">{item.promotion}đ</CardText>
-                      <CardText className="home-item-price">{item.price}đ</CardText>
-                      </div>
-
-                      <div className="home-btn-item-product">
-                        <Button className="home-add-to-card">
-                          Add to Cart
-                        </Button>
-                        <Button className="home-buy-now">
-                          <Link to="/">Buy Now</Link>
-                        </Button>
-                      </div>
-                    </CardBody>
-                  </div>
-                </Card>
-              );
-            })}
-        </Slider>
+        {productfeature &&
+          productfeature.map((item, index) => {
+            return (
+              <Card className="home-item-product-feature" key={index}>
+                <div>
+                  <img alt="Card cap" src={item.url} width="100%" />
+                  <CardBody>
+                    <CardTitle className="home-item-feature-name">
+                      {item.name}
+                    </CardTitle>
+                    <CardText>{formatPrice.format(item.price)}</CardText>
+                    <div className="home-btn-item-product">
+                      <Button className="home-add-to-card">Thêm vào giỏ</Button>
+                      <Button className="home-buy-now">
+                        <Link to="/">Mua ngay</Link>
+                      </Button>
+                    </div>
+                  </CardBody>
+                </div>
+              </Card>
+            );
+          })}
       </section>
     </main>
   );

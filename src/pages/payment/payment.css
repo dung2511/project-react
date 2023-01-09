@@ -29,3 +29,27 @@
 .select_city {
     width: 100%;
 }
+.payment_name {
+  vertical-align: middle;
+  text-align: center;
+  width: 35%;
+}
+.payment_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.payment_img img {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 !important;
+}
+.d-flex {
+  display: flex;
+}
+.j-center {
+  justify-content: center;
+}
+.align-center {
+  align-items: center;
+}

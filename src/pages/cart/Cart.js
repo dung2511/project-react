@@ -1,19 +1,23 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Table } from "reactstrap";
 import { Cartcontext } from "../../component/reducer/cartReducer";
 import "./cart.css";
 const Cart = () => {
+  document.title = "Giỏ hàng";
   const formatPrice = new Intl.NumberFormat("vi", {
-    style:"currency", 
-    currency:"VND"
-  })
+    style: "currency",
+    currency: "VND",
+  });
   const Globalstate = useContext(Cartcontext);
   const state = Globalstate.state;
   const dispatch = Globalstate.dispatch;
   const total = state.reduce((total, item) => {
     return total + item.price * item.quantity;
   }, 0);
+
+ localStorage.setItem("cartItems", JSON.stringify(state));  
+ 
   return (
     <main id="cart">
       <section className="flow-user">
@@ -40,7 +44,9 @@ const Cart = () => {
                       <img src={item.url} alt="" />
                     </th>
                     <td className="cart-name-product">{item.name}</td>
-                    <td className="price-product">{formatPrice.format(item.price)}</td>
+                    <td className="price-product">
+                      {formatPrice.format(item.price)}
+                    </td>
                     <td className="cart-qty-product">
                       <button
                         onClick={() => {
@@ -93,9 +99,11 @@ const Cart = () => {
           </tbody>
         </Table>
       </section>
-      <section className="cart-total">Tổng tiền thanh toán: {formatPrice.format(total)}</section>
+      <section className="cart-total">
+        Tổng tiền thanh toán: {formatPrice.format(total)}
+      </section>
       <section className="go_to_payment">
-        <Link to={'/payment'}>Thanh toán</Link>
+        <Link to={"/payment"}>{state.length > 0 ? "Thanh toán" : ""}</Link>
       </section>
     </main>
   );

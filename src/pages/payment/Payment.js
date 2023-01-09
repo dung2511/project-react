@@ -1,7 +1,10 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { Badge, Table } from "reactstrap";
+import { Cartcontext } from "../../component/reducer/cartReducer";
 import "./payment.css";
+import MailIcon from "@mui/icons-material/Mail";
 const Payment = () => {
   document.title = "Thanh toán";
   const {
@@ -50,7 +53,12 @@ const Payment = () => {
       console.log(error);
     }
   }, []);
-
+  const Globalstate = useContext(Cartcontext);
+  const state = Globalstate.state;
+  const dispatch = Globalstate.dispatch;
+  const total = state.reduce((total, item) => {
+    return total + item.price * item.quantity;
+  }, 0);
   return (
     <main className="payment">
       <section className="payment_container">
@@ -181,7 +189,25 @@ const Payment = () => {
             </span>
           </div>
           <div className="payment_info_product">
-            Sản phẩm <br />
+            <Table bordered>
+              <thead>
+                {state.map((item, index) => {
+                  return (
+                    <tr key={index}>
+                      <th className="payment_img">
+                        <Badge color="secondary" badgeContent={99}>
+                          <MailIcon />
+                        </Badge>
+                     
+                      </th>
+                      <th className="payment_name">{item.name}</th>
+
+                      <th className="payment_total_price">{total}</th>
+                    </tr>
+                  );
+                })}
+              </thead>
+            </Table>
             <input className="payment_submit" type="submit" />
           </div>
         </form>
