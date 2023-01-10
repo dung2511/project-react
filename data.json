@@ -239,6 +239,45 @@
       "price": 27900000,
       "url": "../assets/image/bo-ban-an-mat-da-cam-cao-cap.jpg"
     }
+    ,
+    {
+      "id": 19,
+      "name": "Bàn làm việc",
+      "price": 57900000,
+      "url": "../assets/image/ban-lam-viec.webp"
+    },
+    {
+      "id": 20,
+      "name": "Bộ bàn ăn",
+      "price": 27900000,
+      "url": "../assets/image/bo-ban-an-mat-da-cam-cao-cap.jpg"
+    }
+    ,
+    {
+      "id": 21,
+      "name": "Bàn làm việc",
+      "price": 57900000,
+      "url": "../assets/image/ban-lam-viec.webp"
+    },
+    {
+      "id": 22,
+      "name": "Bộ bàn ăn",
+      "price": 27900000,
+      "url": "../assets/image/bo-ban-an-mat-da-cam-cao-cap.jpg"
+    }
+    ,
+    {
+      "id": 23,
+      "name": "Bàn làm việc",
+      "price": 57900000,
+      "url": "../assets/image/ban-lam-viec.webp"
+    },
+    {
+      "id": 24,
+      "name": "Bộ bàn ăn",
+      "price": 27900000,
+      "url": "../assets/image/bo-ban-an-mat-da-cam-cao-cap.jpg"
+    }
   ],
   "sort_price": ["Mặc định", "Giá từ thấp tới cao", "Giá từ cao tới thấp"]
 }

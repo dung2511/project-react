@@ -65,18 +65,17 @@ const Footer = () => {
       <div className="footer_list">
         <div className="footer_item">
           <h4>Beaty Nội thất</h4>
-          <img src="" alt=""/>
           {info &&
             info.map((item, index) => {
-              return <p key={index}>{item.content}</p>;
+              return <p className="footer__item" key={index}>{item.content}</p>;
             })}
         </div>
         <div className="footer_item">
-          <h4>Hộ trợ khách hàng</h4>
+          <h4>Hỗ trợ khách hàng</h4>
           {cskh &&
             cskh.map((item, index) => {
               return (
-                <p key={index}>
+                <p className="footer__item" key={index}>
                   <Link to={item.path}>{item.display}</Link>
                 </p>
               );
@@ -87,7 +86,7 @@ const Footer = () => {
           {csud &&
             csud.map((item, index) => {
               return (
-                <p key={index}>
+                <p className="footer__item" key={index}>
                   <Link to={item.path}>{item.display}</Link>
                 </p>
               );

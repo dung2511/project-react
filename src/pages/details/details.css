@@ -80,7 +80,7 @@ input[type="number"]::-webkit-outer-spin-button {
   padding: 0 4px;
 }
 .detail-product_price {
-  color: #046b6f;
+  color: #ff4848;
   font-size: 30px;
   font-weight: 600;
 }
@@ -137,4 +137,33 @@ input[type="number"]::-webkit-outer-spin-button {
 .mb-0 {
   margin-bottom: 0;
 }
-
+.detail_product__img {
+  padding-right: 2em;
+  width: 50%;
+}
+.detail__product__details {
+  width: 50%;
+}
+@media only screen and (max-width: 768px) {
+  #details {
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 426px) {
+  .detail-product {
+    flex-wrap: wrap;
+  }
+  .detail_product__img {
+    width: 100%;
+  }
+  .detail__product__details {
+    margin-top: 2em;
+    width: 100%;
+  }
+  .detail-buy_now button, .detail-add_to_cart button{
+    font-size: 1em;
+   }
+   .detail-add_to_cart{
+    font-size: 1em;
+   }
+}

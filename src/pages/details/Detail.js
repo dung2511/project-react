@@ -105,9 +105,8 @@ const Detail = () => {
         <Link to={"/product"}> Sản phẩm</Link> / {detailProduct.name}
       </section>
       <section className="detail-container">
-        <div className="detail-product">
-          <Row>
-            <Col xs={6}>
+        <div className="detail-product d-flex">
+            <div className="detail_product__img">
               <div className="detail-product-img_0">
                 <img
                   className="detail-img_feature"
@@ -129,23 +128,22 @@ const Detail = () => {
                   <img src={detailProduct.img_detail_4} />
                 </div>
               </div>
-            </Col>
-            <Col xs={6}>
+            </div>
+            <div className="detail__product__details">
               <div className="detail-product-title">
                 <div className="detail-product_name">
                   <h1>{detailProduct.name}</h1>
                 </div>
-                <div className="detail-product-feature d-flex">
-                  <span className="detail-product_feature d-flex">
+                <div className="detail-product-feature">
+                  <div className="detail-product_feature d-flex">
                     Thương hiệu:{" "}
                     <p className="detail-product_update_1">
                       {detailProduct.feature}
                     </p>
-                  </span>
-                  <span style={{ margin: "0 12px" }}>|</span>
-                  <span className="detail-product_qty d-flex">
+                  </div>
+                  <div className="detail-product_qty d-flex">
                     Tình trạng: <p className="detail-product_update_2"></p>
-                  </span>
+                  </div>
                 </div>
                 <div className="detail-product_price">
                   {formatPrice.format(detailProduct.price)}
@@ -173,7 +171,7 @@ const Detail = () => {
                   />
                   <button className="detail-btn">+</button>
                 </div>
-                <div className="detail-add-buy">
+                <div className="detail-add-buy d-flex">
                   <Link to={"/"} className="detail-buy_now">
                     <button type="">Mua ngay</button>
                   </Link>
@@ -204,8 +202,7 @@ const Detail = () => {
                   </TabPanel>
                 </Box>
               </div>
-            </Col>
-          </Row>
+            </div>
         </div>
       </section>
     </main>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Table } from "reactstrap";
 import { Cartcontext } from "../../component/reducer/cartReducer";
 import "./cart.css";
+import { FaTrash } from "react-icons/fa";
 const Cart = () => {
   document.title = "Giỏ hàng";
   const formatPrice = new Intl.NumberFormat("vi", {
@@ -16,8 +17,8 @@ const Cart = () => {
     return total + item.price * item.quantity;
   }, 0);
 
- localStorage.setItem("cartItems", JSON.stringify(state));  
- 
+  localStorage.setItem("cartItems", JSON.stringify(state));
+
   return (
     <main id="cart">
       <section className="flow-user">
@@ -29,14 +30,14 @@ const Cart = () => {
             <tr>
               <th className="cart-img-product">Ảnh sản phẩm</th>
               <th className="cart-name-product">Tên sản phẩm</th>
-              <th className="price-product">Giá tiền</th>
+              <th className="cart-price-product">Giá tiền</th>
               <th className="cart-qty-product">Số lượng</th>
               <th className="cart-total-product">Tổng tiền</th>
               <th className="cart-manipulation">Thao tác</th>
             </tr>
           </thead>
           <tbody>
-            {state.length > 0 ? (
+            {/* {state.length > 0 ? (
               state.map((item, index) => {
                 return (
                   <tr key={index}>
@@ -95,7 +96,26 @@ const Cart = () => {
                   </span>
                 </td>
               </tr>
-            )}
+            )} */}
+            <tr>
+              <th className="cart-img-product" scope="row">
+                <img src="../assets/image/ghe-phong-khach-4.jpg" alt="" />
+              </th>
+              <td className="cart-name-product">Nội thất phòng khách L1</td>
+              <td className="cart-price-product">{formatPrice.format(100000)}</td>
+              <td className="cart-qty-product">
+                <button>-</button>1<button>+</button>
+              </td>
+              <td className="cart-total-product">
+                {formatPrice.format(1000000)}
+              </td>
+              <td className="cart-manipulation">
+                {" "}
+                <button type="">
+                  <FaTrash />
+                </button>
+              </td>
+            </tr>
           </tbody>
         </Table>
       </section>

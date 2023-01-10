@@ -1,35 +1,61 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { Button, Col, Row } from "reactstrap";
+import { Link } from "react-router-dom";
+import { Button } from "reactstrap";
 import "./product.css";
 import { Card, CardBody, CardText, CardTitle } from "reactstrap";
 import Category from "./Category";
-import { useDispatch } from "react-redux";
 import { Cartcontext } from "../../component/reducer/cartReducer";
+import { Spinner } from "react-bootstrap";
 
+const list = [
+  {
+    display: "Sản phẩm nổi bật",
+    path: "/san-pham-noi-bat",
+  },
+  {
+    display: "Sản phẩm khuyến mãi",
+    path: "/san-pham-noi-bat",
+  },
+  {
+    display: "Nội thất gia đình",
+    path: "/san-pham-noi-bat",
+  },
+  {
+    display: "Nội thất văn phòng",
+    path: "/san-pham-noi-bat",
+  },
+];
 const Product = () => {
   const formatPrice = new Intl.NumberFormat("vi", {
-    style:"currency", 
-    currency:"VND"
-  })
+    style: "currency",
+    currency: "VND",
+  });
+  const limit = 8;
+  const [isLoading, setLoading] = useState(false);
+  const [sumProduct, setSumProduct] = useState();
+  const [page, setPages] = useState(1);
   const Globalstate = useContext(Cartcontext);
   const dispatch = Globalstate.dispatch;
   const [productAll, setproductAll] = useState("");
   const [selectPrice, setSelectPrice] = useState();
   const [order, setOrder] = useState();
   useEffect(() => {
-    document.title = "Tất cả sản phẩm";
+    document.title = "Sản phẩm";
     try {
       axios({
         method: "get",
         url: `http://localhost:3004/product-all?_sort=${selectPrice}&_order=${order}`,
         param: {
+          _page: page,
+          _limit: limit,
           _sort: selectPrice,
           _order: order,
         },
       }).then(function (res) {
         setproductAll(res.data);
+        setSumProduct(res.data.length);
+        setLoading(false);
       });
     } catch (error) {
       console.log(error);
@@ -42,78 +68,70 @@ const Product = () => {
       </section>
       <section className="product">
         <div className="product-item">
-          <Row>
-            <Col xs={3}>
-              <ul className="product-menu-item">
-                <h5>Danh sách sản phẩm</h5>
-                <li className="product-list-menu-item">
-                  <Link to={"/san-pham-noi-bat"}>Sản phẩm nổi bật</Link>
-                </li>
-                <li className="product-list-menu-item">
-                  <Link to={"/san-pham-noi-bat"}>Sản phẩm khuyến mãi</Link>
-                </li>
-                <li className="product-list-menu-item">
-                  <Link to={"/san-pham-noi-bat"}>Nội thất văn phòng</Link>
-                </li>
-                <li className="product-list-menu-item">
-                  <Link to={"/san-pham-noi-bat"}>Nội thất gia đình</Link>
-                </li>
-                <li className="product-list-menu-item">
-                  <Link to={"/san-pham-noi-bat"}>Phòng bếp</Link>
-                </li>
-                <li className="product-list-menu-item">
-                  <Link to={"/san-pham-noi-bat"}>Phòng khách</Link>
-                </li>
-              </ul>
-            </Col>
-            <Col xs={9}>
-              <h3>Tất cả sản phẩm</h3>
-              <div className="product_category">
-                Xếp theo:{" "}
-                <Category setSelectPrice={setSelectPrice} setOrder={setOrder} />
-              </div>
-              <div className="product-list-item">
-                {productAll &&
-                  productAll.map((item, index) => {
-                    item.quantity = 1
-                    return (
-                      <Card
-                        className="home-item-product-feature product-item-all-list"
-                        key={index}
-                      >
-                        <div className="product-item-list">
-                          <Link to={`/product/${item.id}`}>
-                            <img alt="Card cap" src={item.url} width="100%" />
-                          </Link>
+          {/* <div className="product__list">
+            <ul className="product-menu-item">
+              <h5>Danh sách sản phẩm</h5>
+              {list &&
+                list.map((item, index) => {
+                  return (
+                    <li key={index} className="product-list-menu-item">
+                      <Link to={item.path}>{item.display}</Link>
+                    </li>
+                  );
+                })}
+            </ul>
+          </div> */}
+          <div className="product__list__item">
+            <h3>Sản phẩm</h3>
+            <div className="product_category">
+              Xếp theo:{" "}
+              <Category setSelectPrice={setSelectPrice} setOrder={setOrder} />
+            </div>
+            <div className="product-list-item">
+              {!isLoading &&
+                productAll &&
+                productAll.map((item, index) => {
+                  item.quantity = 1;
+                  return (
+                    <Card
+                      className="home-item-product-feature product-item-all-list"
+                      key={index}
+                    >
+                      <div className="product-item-list">
+                        <Link to={`/product/${item.id}`}>
+                          <img alt="Card cap" src={item.url} width="100%" />
+                        </Link>
 
-                          <CardBody>
-                            <CardTitle className="home-item-feature-name">
-                              {item.name}
-                            </CardTitle>
-                            <CardText className="product-price">
-                              {formatPrice.format(item.price)}
-                            </CardText>
-                            <div className="home-btn-item-product">
-                              <Button
-                                className="home-add-to-card"
-                                onClick={() =>
-                                  dispatch({ type: "ADD", payload: item })
-                                }
-                              >
-                                Add to Cart
-                              </Button>
-                              <Button className="home-buy-now">
-                                <div>Buy Now</div>
-                              </Button>
-                            </div>
-                          </CardBody>
-                        </div>
-                      </Card>
-                    );
-                  })}
-              </div>
-            </Col>
-          </Row>
+                        <CardBody>
+                          <CardTitle className="home-item-feature-name">
+                            {item.name}
+                          </CardTitle>
+                          <CardText>{formatPrice.format(item.price)}</CardText>
+                          <div className="home-btn-item-product">
+                            <Button
+                              className="home-add-to-card"
+                              onClick={() =>
+                                dispatch({ type: "ADD", payload: item })
+                              }
+                            >
+                              Add to Cart
+                            </Button>
+                            <Button className="home-buy-now">
+                              <div>Buy Now</div>
+                            </Button>
+                          </div>
+                        </CardBody>
+                      </div>
+                    </Card>
+                  );
+                })}
+              {isLoading && (
+                <Spinner animation="border" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </Spinner>
+              )}
+            </div>
+          </div>
         </div>
       </section>
     </main>

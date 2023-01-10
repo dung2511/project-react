@@ -4,13 +4,12 @@ import { Container } from "react-bootstrap";
 import "./header.css";
 import React, { useContext } from "react";
 import InputSearch from "../../pages/search/InputSearch";
-import { FaUser, FaShoppingCart, FaPhoneVolume } from "react-icons/fa";
+import { FaUser, FaShoppingCart } from "react-icons/fa";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Badge } from "reactstrap";
 import { Cartcontext } from "../reducer/cartReducer";
-
 
 const mainNav = [
   {
@@ -22,6 +21,10 @@ const mainNav = [
     path: "/product",
 
     item: [
+      {
+        display:"Tất cả sản phẩm",
+        path:"/product"
+      },
       {
         display: "Sản phẩm nổi bật",
         path: "/san-pham-noi-bat",
@@ -51,6 +54,16 @@ const mainNav = [
 ];
 
 const Header = () => {
+
+
+  // const click = () => {
+  //   mainNav.map((item) => {
+  //     if (item.display === "Sản phẩm") {
+  //       window.location.href = "/product";
+  //     }
+  //   });
+  // };
+
   const Global = useContext(Cartcontext);
   return (
     <>
@@ -61,7 +74,7 @@ const Header = () => {
               <Navbar.Brand>
                 <div className="header__logo">
                   <Link className="header-logo">
-                    <img src="assets/image/logo-web.png" alt="" />
+                    <img src="../assets/image/logo-web.png" alt="" />
                   </Link>
                 </div>
               </Navbar.Brand>
@@ -76,6 +89,7 @@ const Header = () => {
                             key={index}
                             title={item.display}
                             id="basic-nav-dropdown"
+                          
                           >
                             {item.item &&
                               item.item.map((value, ind) => {
@@ -99,13 +113,16 @@ const Header = () => {
                 <div className="header-input-search">
                   <InputSearch />
                   <div className="header__shopping">
-                    <FaShoppingCart title="cart" />
-                    <Badge>
-                      {Global.state.length}
-                    </Badge>
+                    <Link to={"/cart"}>
+                      <FaShoppingCart title="cart" />
+                      <Badge>{Global.state.length}</Badge>
+                    </Link>
                   </div>
                   <div className="header__user">
-                    <FaUser />
+                    <Link to={"/user"}>
+                      {" "}
+                      <FaUser />
+                    </Link>
                   </div>
                 </div>
               </Navbar.Collapse>

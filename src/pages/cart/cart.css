@@ -13,7 +13,9 @@ td {
 .cart-total-product,
 .cart-qty-product,
 .cart-name-product,
-.cart-img-product, .cart-price-product,.price-product {
+.cart-img-product,
+.cart-price-product,
+.price-product {
   text-align: center;
   display: table-cell;
   vertical-align: middle;
@@ -49,4 +51,38 @@ td {
 }
 .cart-total {
   text-align: right;
+}
+.cart-manipulation button {
+  border: none;
+  background-color: #fdfcf6;
+}
+.cart-qty-product button {
+  background-color: #ffffff;
+  width: 2em;
+  height: 2em;
+  margin: 0 0.2em;
+  border: 1px solid #f3f6f7;
+  background: #f3f6f7;
+  font-size: 1.1em;
+  font-weight: 500;
+  transition: 0.7s;
+}
+.cart-qty-product button:hover {
+  background: #c8c8c8;
+}
+@media only screen and (max-width: 768px) {
+  #cart {
+    padding: 0;
+  }
+  .cart-total-product {
+    display: none;
+  }
+  .cart-name-product {
+    width: 25%;
+  }
+  .cart-qty-product button {
+    width: 1.5em;
+    height: 1.5em;
+    font-size: 1em;
+  }
 }

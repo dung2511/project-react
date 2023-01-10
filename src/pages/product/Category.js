@@ -29,7 +29,7 @@ const Category = ({ setSelectPrice, setOrder }) => {
     }
   };
   return (
-    <select onChange={handleSort} className="product-category">
+    <select onChange={handleSort} className="product-category_select">
       {listSort &&
         listSort.map((value, index) => {
           // console.log(value);

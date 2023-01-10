@@ -35,8 +35,8 @@ li.product-list-menu-item:hover a {
   flex-wrap: wrap;
 }
 .product-item-all-list {
-  width: 32%;
-  padding: 12px;
+  width: 25%;
+  padding: 0.5em;
   margin-bottom: 20px;
   border-radius: 5px;
 }
@@ -52,6 +52,16 @@ li.product-list-menu-item:hover a {
   display: flex;
   align-items: center;
   height: 48px;
+  padding: 0.5em;
+}
+.product-category_select {
+  border: none;
+  display: flex;
+  align-items: center;
+  height: 2em;
+  border-bottom: 2px solid gray;
+  padding: 0 1em;
+  background-color: #fdfcf6;
 }
 .product-category {
   display: flex;
@@ -65,4 +75,40 @@ li.product-list-menu-item:hover a {
 }
 .product_input {
   margin-right: 5px;
+}
+.product__list {
+  width: 20%;
+  padding-right: 0.5em;
+}
+.product__list__item {
+  width: 100%;
+}
+.product-item {
+  display: flex;
+}
+.product__list__item h3 {
+  text-align: center;
+}
+@media only screen and (max-width: 1024px) {
+  .product-item-all-list {
+    width: 33%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  #product {
+    padding: 0;
+  }
+  .product-item-all-list {
+    width: 33%;
+  }
+}
+@media only screen and (max-width: 426px) {
+  .product-item-all-list {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .product-item-all-list {
+    width: 100%;
+  }
 }

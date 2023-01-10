@@ -37,9 +37,7 @@ a {
   font-size: 1.2em;
   font-weight: 500;
 }
-.card-text {
-  margin-bottom: 0;
-}
+
 .slick-slide {
   padding: 0 5px;
 }
@@ -106,6 +104,8 @@ a {
   text-align: right;
   padding-bottom: 1em;
   font-size: 1.1em;
+  margin-bottom: 0;
+  font-weight: 600;
 }
 .card {
   border: none;
