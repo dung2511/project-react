@@ -30,19 +30,16 @@ const Home = () => {
     currency: "VND",
   });
   const [productfeature, setProductfeature] = useState("");
-  const [productSold, setProductSold] = useState("");
-  const [productPromotion, setProductPromotion] = useState("");
   useEffect(() => {
     try {
       axios({
         method: "get",
         url: "http://localhost:3004/product-feature",
       }).then(function (res) {
-        // console.log(res.data)
         setProductfeature(res.data);
       });
     } catch (error) {
-      throw new Error(error);
+    console.log(error);
     }
   }, []);
   return (
@@ -72,7 +69,7 @@ const Home = () => {
             return (
               <Card className="home-item-product-feature" key={index}>
                 <div>
-                  <img alt="Card cap" src={item.url} width="100%" />
+                  <img alt={item.name} title={item.name} src={item.url} width="100%" />
                   <CardBody>
                     <CardTitle className="home-item-feature-name">
                       {item.name}

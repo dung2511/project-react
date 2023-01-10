@@ -2,87 +2,58 @@
   padding: 0 108px;
   margin-bottom: 12px;
 }
-table,
-tr,
-th,
-td {
-  border-collapse: collapse;
-  border: 1px solid black;
+.cart__btn {
+  display: flex;
+  align-items: center;
 }
-.cart-manipulation,
-.cart-total-product,
-.cart-qty-product,
-.cart-name-product,
-.cart-img-product,
-.cart-price-product,
-.price-product {
-  text-align: center;
-  display: table-cell;
-  vertical-align: middle;
-}
-.cart-manipulation {
-  width: 10%;
-}
-.cart-total-product {
-  width: 15%;
-}
-.cart-qty-product {
-  width: 10%;
-}
-.cart-price-product {
-  width: 15%;
-}
-.cart-name-product {
-  width: 30%;
-}
-.cart-img-product {
-  width: 20%;
-}
-.cart-img-product > img {
-  width: 100px;
-  height: auto;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-.cart-qty-product button {
-  border: 1px solid gray;
-}
-.cart-total {
-  text-align: right;
-}
-.cart-manipulation button {
+.cart__btn button{
   border: none;
-  background-color: #fdfcf6;
-}
-.cart-qty-product button {
-  background-color: #ffffff;
+  display: flex;
   width: 2em;
   height: 2em;
-  margin: 0 0.2em;
-  border: 1px solid #f3f6f7;
-  background: #f3f6f7;
-  font-size: 1.1em;
-  font-weight: 500;
-  transition: 0.7s;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.5em;
 }
-.cart-qty-product button:hover {
-  background: #c8c8c8;
+.cart__price {
+  margin:0;
 }
-@media only screen and (max-width: 768px) {
-  #cart {
-    padding: 0;
+.card-body {
+  background:#fff;
+}
+.bg-grey {
+  border-radius: none !important;
+}
+.text-muted {
+  border: none;
+  background: #fff;
+}
+@media (min-width: 1025px) {
+  .h-custom {
+    height: 100vh !important;
   }
-  .cart-total-product {
-    display: none;
-  }
-  .cart-name-product {
-    width: 25%;
-  }
-  .cart-qty-product button {
-    width: 1.5em;
-    height: 1.5em;
-    font-size: 1em;
+}
+
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+}
+
+.card-registration .select-arrow {
+  top: 13px;
+}
+
+.bg-grey {
+  background-color: #eae8e8;
+}
+
+
+
+@media (max-width: 991px) {
+  .card-registration-2 .bg-grey {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
   }
 }
