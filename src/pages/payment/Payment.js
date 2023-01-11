@@ -1,10 +1,9 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Badge, Table } from "reactstrap";
 import { Cartcontext } from "../../component/reducer/cartReducer";
 import "./payment.css";
-import MailIcon from "@mui/icons-material/Mail";
+
 const Payment = () => {
   document.title = "Thanh toán";
   const {
@@ -15,7 +14,6 @@ const Payment = () => {
   } = useForm();
   const onHandleSubmit = (e) => {
     console.log(e);
-    // e.preventDefault();
   };
   const handleChange = (e) => {
     e.preventDefault();
@@ -48,6 +46,7 @@ const Payment = () => {
         url: "https://provinces.open-api.vn/api/?depth=3",
       }).then(function (res) {
         setCity(res.data);
+        console.log(res.data);
       });
     } catch (error) {
       console.log(error);
@@ -60,159 +59,193 @@ const Payment = () => {
     return total + item.price * item.quantity;
   }, 0);
   return (
-    <main className="payment">
-      <section className="payment_container">
-        <form
-          className="payment_info_user"
-          onSubmit={handleSubmit(onHandleSubmit)}
-        >
-          <div className="form_info_user">
-            <input
-              placeholder="Họ và tên"
-              {...register("username", {
-                required: true,
-                maxLength: 20,
-              })}
-            />
-            {errors?.username?.type === "required" && (
-              <p>Vui lòng nhập họ tên</p>
-            )}
-            {errors?.username?.type === "maxLength" && (
-              <p>First name cannot exceed 30 characters</p>
-            )}
+    <div className="checkout">
+      <section className="py-5">
+        <div className="container px-4 px-lg-5 my-5">
+          <div className="row">
+            <div className="col-md-4 order-md-2 mb-4">
+              <h4 className="d-flex justify-content-between align-items-center mb-3">
+                <span className="text-muted">Your cart</span>
+                <span className="badge badge-secondary badge-pill">3</span>
+              </h4>
+              <ul className="list-group mb-3">
+                <li className="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                    <h6 className="my-0">Product name</h6>
+                    <small className="text-muted">Brief description</small>
+                  </div>
+                  <span className="text-muted">$12</span>
+                </li>
 
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              {...register("email", {
-                required: true,
-              })}
-            />
-            {errors?.email?.type === "required" && <p>Vui lòng nhập email</p>}
+                <li className="list-group-item d-flex justify-content-between">
+                  <span>Total (USD)</span>
+                  <strong>$20</strong>
+                </li>
+              </ul>
+            </div>
+            <div className="col-md-8 order-md-1">
+              <h4 className="mb-3">Billing address</h4>
+              <form
+                onSubmit={handleSubmit(onHandleSubmit)}
+                className="needs-validation"
+                
+              >
+                <div className="row">
+                  <div className="col-md-6 mb-3">
+                    <label htmlFor="firstName" className="form-label">
+                      First name
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="firstName"
+                      required
+                    />
 
-            <input
-              placeholder="Số điện thoại"
-              type="number"
-              name="phone"
-              {...register("phone", {
-                required: true,
-              })}
-            />
-            {errors?.phone?.type === "required" && (
-              <p>Vui lòng nhập số điện thoại</p>
-            )}
-
-            <input
-              placeholder="Địa chỉ(Tùy chọn)"
-              name="address"
-              {...register("address", {
-                required: true,
-              })}
-            />
-            {errors?.address?.type === "required" && (
-              <p>Vui lòng nhập địa chỉ</p>
-            )}
-            <input
-              type=""
-              name="note"
-              className="payment_note"
-              placeholder="Ghi chú (Tùy chọn)"
-            />
-            <select
-              className="select_city"
-              value="city"
-              onChange={handleChange}
-              id="city"
-            >
-              <option defaultValue={""}>---Chọn Thành Phố---</option>
-              {city &&
-                city.map((city) => {
-                  return (
-                    <option key={city.code} value={city.codename}>
-                      {city.name}
-                    </option>
-                  );
-                })}
-            </select>
-            <select
-              className="select_district"
-              value="district"
-              onChange={handleChangeWard}
-              id="district"
-            >
-              <option defaultValue={""}>---Chọn Quận Huyện---</option>
-              {district &&
-                district.map((district) => {
-                  return (
-                    <option key={district.code} value={district.codename}>
-                      {district.name}
-                    </option>
-                  );
-                })}
-            </select>
-            <select
-              className="select_commune"
-              value="commune"
-              onChange={handleChange}
-              id="commune"
-            >
-              <option defaultValue={""}>---Chọn Xã---</option>
-              {commune &&
-                commune.map((ward) => {
-                  return (
-                    <option key={ward.code} value={ward.codename}>
-                      {ward.name}
-                    </option>
-                  );
-                })}
-            </select>
+                    <div className="invalid-feedback">
+                      Vui lòng điền thông tin
+                    </div>
+                  </div>
+                  <div className="col-md-6 mb-3">
+                    <label htmlFor="lastName" className="form-label">
+                      Last name
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="lastName"
+                      placeholder=""
+                      required
+                    />
+                    <div className="invalid-feedback">
+                      Vui lòng điền thông tin
+                    </div>
+                  </div>
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="email" className="form-label">
+                    Email <span className="text-muted">(Optional)</span>
+                  </label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="email"
+                    placeholder="you@example.com"
+                  />
+                  <div className="invalid-feedback">
+                    Please enter a valid email address for shipping updates.
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-5 mb-3">
+                    <label htmlFor="country" className="form-label">
+                      Thành phố
+                    </label>
+                    <select
+                      onChange={handleChange}
+                      className="form-select d-block w-100"
+                      id="country"
+                      required
+                    >
+                      <option value="">Chọn Thành Phố</option>
+                      {city &&
+                        city.map((item, index) => {
+                          return (
+                            <option value={item.codename} key={index}>
+                              {item.name}
+                            </option>
+                          );
+                        })}
+                    </select>
+                    <div className="invalid-feedback">
+                      Please select a valid country.
+                    </div>
+                  </div>
+                  <div className="col-md-4 mb-3">
+                    <label htmlFor="state" className="form-label">
+                      Quận/Huyện
+                    </label>
+                    <select
+                    onChange={handleChangeWard}
+                      className="form-select d-block w-100"
+                      id="state"
+                      required
+                    >
+                      <option value="">Chọn Quận/Huyện</option>
+                      {district &&
+                        district.map((item, index) => {
+                        
+                          return (
+                            <option value={item.codename} key={index}>
+                              {item.name}
+                            </option>
+                          );
+                        })}
+                    </select>
+                    <div className="invalid-feedback">
+                      Please provide a valid state.
+                    </div>
+                  </div>
+                  <div className="col-md-3 mb-3">
+                  <label htmlFor="zip" className="form-label">
+                     Xã
+                    </label>
+                    <select
+                      className="form-select d-block w-100"
+                      id="zip"
+                      required
+                    >
+                      <option value="">Chọn xã</option>
+                      {commune &&
+                        commune.map((item, index) => {
+                          console.log(item);
+                          return (
+                            <option value={item.codename} key={index}>
+                              {item.name}
+                            </option>
+                          );
+                        })}
+                    </select>
+                    <div className="invalid-feedback">Zip code required.</div>
+                  </div>
+                </div>{" "}
+                <div className="mb-3">
+                  <label htmlFor="address" className="form-label">
+                    Địa chỉ
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="address"
+                    placeholder="1234 Main St"
+                    required
+                  />
+                  <div className="invalid-feedback">Vui lòng nhập địa chỉ</div>
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="address2" className="form-label">
+                    Ghi chú <span className="text-muted">(Tùy chọn)</span>
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="note"
+                    placeholder="Ghi chú"
+                  />
+                </div>
+                <hr className="mb-4" />
+                <button
+                  className="btn btn-dark px-4 rounded-pill"
+                
+                >
+                  Đặt hàng
+                </button>
+              </form>
+            </div>
           </div>
-
-          <div className="payment_type">
-            <h4>Vận chuyển</h4>
-            <p>Vui lòng nhập thông tin thanh toán</p>
-            <p>Phí vận chuyển:</p>
-            <h4>Phương thức thanh toán</h4>
-            <span>
-              <input
-                type="radio"
-                id="payment_type"
-                {...register("type_payment", {
-                  required: true,
-                })}
-              />
-              <label htmlFor="payment_type">Thanh toán khi nhận hàng</label>
-              {errors?.type_payment?.type === "required" && (
-                <p>Vui lòng chọn phương thức thanh toán</p>
-              )}
-            </span>
-          </div>
-          <div className="payment_info_product">
-            <Table bordered>
-              <thead>
-                {state.map((item, index) => {
-                  return (
-                    <tr key={index}>
-                      <th className="payment_img">
-                        <Badge color="secondary" badgeContent={99}>
-                          <MailIcon />
-                        </Badge>
-                     
-                      </th>
-                      <th className="payment_name">{item.name}</th>
-
-                      <th className="payment_total_price">{total}</th>
-                    </tr>
-                  );
-                })}
-              </thead>
-            </Table>
-            <input className="payment_submit" type="submit" />
-          </div>
-        </form>
+        </div>
       </section>
-    </main>
+    </div>
   );
 };
 

@@ -1,0 +1,284 @@
+{
+  "product-feature": [
+    {
+      "id": 1,
+      "name": "Ghế Phòng Khách",
+      "price": 2000000,
+      "url": "../assets/image/ghe-phong-khach-1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Nội thất phòng khách L1",
+      "price": 21000000,
+      "url": "../assets/image/noi-that-phong-khach.webp"
+    },
+    {
+      "id": 3,
+      "name": "Nội thất phòng khách L2",
+      "price": 37900000,
+      "url": "../assets/image/noi-that-phong-khach-2.webp"
+    },
+    {
+      "id": 4,
+      "name": "Nội thất phòng ngủ",
+      "price": 47900000,
+      "url": "../assets/image/noi-that-phong-ngu.webp"
+    },
+    {
+      "id": 5,
+      "name": "Bàn làm việc",
+      "price": 57900000,
+      "url": "../assets/image/ban-lam-viec.webp"
+    },
+    {
+      "id": 6,
+      "name": "Bộ bàn ăn",
+      "price": 27900000,
+      "url": "../assets/image/bo-ban-an-mat-da-cam-cao-cap.jpg"
+    }
+  ],
+  "product-sold": [
+    {
+      "id": 1,
+      "name": "Ghế Phòng Khách",
+      "price": 2000000,
+      "url": "../assets/image/ghe-phong-khach-1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Nội thất phòng khách L1",
+      "price": 21000000,
+      "url": "../assets/image/noi-that-phong-khach.webp"
+    },
+    {
+      "id": 3,
+      "name": "Nội thất phòng khách L2",
+      "price": 37900000,
+      "url": "../assets/image/noi-that-phong-khach-2.webp"
+    },
+    {
+      "id": 4,
+      "name": "Nội thất phòng ngủ",
+      "price": 47900000,
+      "url": "../assets/image/noi-that-phong-ngu.webp"
+    },
+    {
+      "id": 5,
+      "name": "Bàn làm việc",
+      "price": 57900000,
+      "url": "../assets/image/ban-lam-viec.webp"
+    },
+    {
+      "id": 6,
+      "name": "Bộ bàn ăn",
+      "price": 27900000,
+      "url": "../assets/image/bo-ban-an-mat-da-cam-cao-cap.jpg"
+    }
+  ],
+  "product-promotion": [
+    {
+      "id": 1,
+      "name": "Ghế Phòng Khách",
+      "price": 2000000,
+      "promotion": "1,500,000",
+      "url": "../assets/image/ghe-phong-khach-1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Nội thất phòng khách L1",
+      "price": 21000000,
+      "promotion": "19,500,000",
+      "url": "../assets/image/noi-that-phong-khach.webp"
+    },
+    {
+      "id": 3,
+      "name": "Nội thất phòng khách L2",
+      "price": 37900000,
+      "promotion": "35,500,000",
+      "url": "../assets/image/noi-that-phong-khach-2.webp"
+    },
+    {
+      "id": 4,
+      "name": "Nội thất phòng ngủ",
+      "price": 47900000,
+      "promotion": "41,500,000",
+      "url": "../assets/image/noi-that-phong-ngu.webp"
+    },
+    {
+      "id": 5,
+      "name": "Bàn làm việc",
+      "price": 57900000,
+      "promotion": "51,500,000",
+      "url": "../assets/image/ban-lam-viec.webp"
+    },
+    {
+      "id": 6,
+      "name": "Bộ bàn ăn",
+      "price": 27900000,
+      "promotion": "21,500,000",
+      "url": "../assets/image/bo-ban-an-mat-da-cam-cao-cap.jpg"
+    }
+  ],
+  "product-all": [
+    {
+      "id": 1,
+      "name": "Ghế nằm thư giãn",
+      "price": 2000000,
+      "url": "../assets/image/ghe-phong-khach-1.jpg",
+      "qty": 100,
+      "feature": "Đang cập nhật",
+      "img_detail_1": "../assets/image/ghe-phong-khach-4.jpg",
+      "img_detail_2": "../assets/image/ghe-phong-khach-1.jpg",
+      "img_detail_3": "../assets/image/ghe-phong-khach-2.jpg",
+      "img_detail_4": "../assets/image/ghe-phong-khach-3.jpg",
+      "description": " Chất liệu: Chân ghế gỗ tự nhiên, Vải nhập khẩu 100%, Miễn phí Hà Nội - Tỉnh khác hỗ trợ 1 phần  ",
+      "kich_thuoc": "Chiều dài 1.6m, Chiều rộng 0.7m, Chiều Cao 6.8m",
+      "material": "Chân ghế gỗ tự nhiên",
+      "size": "D1600 - R700 - C680 mm",
+      "bao_hanh": "Bảo hành: 4 năm"
+    },
+    {
+      "id": 2,
+      "name": "Nội thất phòng khách L1",
+      "price": 21000000,
+      "url": "../assets/image/noi-that-phong-khach.webp"
+    },
+    {
+      "id": 3,
+      "name": "Nội thất phòng khách L2",
+      "price": 37900000,
+      "url": "../assets/image/noi-that-phong-khach-2.webp"
+    },
+    {
+      "id": 4,
+      "name": "Nội thất phòng ngủ",
+      "price": 47900000,
+      "url": "../assets/image/noi-that-phong-ngu.webp"
+    },
+    {
+      "id": 5,
+      "name": "Bàn làm việc",
+      "price": 57900000,
+      "url": "../assets/image/ban-lam-viec.webp"
+    },
+    {
+      "id": 6,
+      "name": "Bộ bàn ăn",
+      "price": 27900000,
+      "url": "../assets/image/bo-ban-an-mat-da-cam-cao-cap.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Ghế Phòng Khách",
+      "price": 2000000,
+      "url": "../assets/image/ghe-phong-khach-4.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Nội thất phòng khách L1",
+      "price": 21000000,
+      "url": "../assets/image/noi-that-phong-khach.webp"
+    },
+    {
+      "id": 9,
+      "name": "Nội thất phòng khách L2",
+      "price": 37900000,
+      "url": "../assets/image/noi-that-phong-khach-2.webp"
+    },
+    {
+      "id": 10,
+      "name": "Nội thất phòng ngủ",
+      "price": 47900000,
+      "url": "../assets/image/noi-that-phong-ngu.webp"
+    },
+    {
+      "id": 11,
+      "name": "Bàn làm việc",
+      "price": 57900000,
+      "url": "../assets/image/ban-lam-viec.webp"
+    },
+    {
+      "id": 12,
+      "name": "Bộ bàn ăn",
+      "price": 27900000,
+      "url": "../assets/image/bo-ban-an-mat-da-cam-cao-cap.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Ghế Phòng Khách",
+      "price": 2000000,
+      "url": "../assets/image/ghe-phong-khach-2.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Nội thất phòng khách L1",
+      "price": 21000000,
+      "url": "../assets/image/noi-that-phong-khach.webp"
+    },
+    {
+      "id": 15,
+      "name": "Nội thất phòng khách L2",
+      "price": 37900000,
+      "url": "../assets/image/noi-that-phong-khach-2.webp"
+    },
+    {
+      "id": 16,
+      "name": "Nội thất phòng ngủ",
+      "price": 47900000,
+      "url": "../assets/image/noi-that-phong-ngu.webp"
+    },
+    {
+      "id": 17,
+      "name": "Bàn làm việc",
+      "price": 57900000,
+      "url": "../assets/image/ban-lam-viec.webp"
+    },
+    {
+      "id": 18,
+      "name": "Bộ bàn ăn",
+      "price": 27900000,
+      "url": "../assets/image/bo-ban-an-mat-da-cam-cao-cap.jpg"
+    },
+    {
+      "id": 19,
+      "name": "Bàn làm việc",
+      "price": 57900000,
+      "url": "../assets/image/ban-lam-viec.webp"
+    },
+    {
+      "id": 20,
+      "name": "Bộ bàn ăn",
+      "price": 27900000,
+      "url": "../assets/image/bo-ban-an-mat-da-cam-cao-cap.jpg"
+    },
+    {
+      "id": 21,
+      "name": "Bàn làm việc",
+      "price": 57900000,
+      "url": "../assets/image/ban-lam-viec.webp"
+    },
+    {
+      "id": 22,
+      "name": "Bộ bàn ăn",
+      "price": 27900000,
+      "url": "../assets/image/bo-ban-an-mat-da-cam-cao-cap.jpg"
+    },
+    {
+      "id": 23,
+      "name": "Bàn làm việc",
+      "price": 57900000,
+      "url": "../assets/image/ban-lam-viec.webp"
+    },
+    {
+      "id": 24,
+      "name": "Bộ bàn ăn",
+      "price": 27900000,
+      "url": "../assets/image/bo-ban-an-mat-da-cam-cao-cap.jpg"
+    }
+  ],
+  "sort_price": [
+    "Mặc định",
+    "Giá từ thấp tới cao",
+    "Giá từ cao tới thấp"
+  ]
+}
