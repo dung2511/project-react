@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Cart from "./pages/cart/Cart";
+import CheckOut from "./pages/checkout/CheckOut";
 import Detail from "./pages/details/Detail";
 import Home from "./pages/home/Home";
 import Layout from "./pages/Layout";
@@ -19,6 +20,7 @@ function App() {
         <Route path="cart" element={<Cart />} />
         {/* <Route path="search/:keyword" element={<ListSearch />} /> */}
         <Route path="payment" element={<Payment />} />
+        <Route path="checkout" element={<CheckOut />} />
       </Route>
     </Routes>
   );

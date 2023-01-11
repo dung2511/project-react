@@ -17,8 +17,6 @@ const Cart = () => {
     return total + item.price * item.quantity;
   }, 0);
 
-  localStorage.setItem("cartItems", JSON.stringify(state));
-  console.log(state);
 
   return (
     <section className="h-100 h-custom">

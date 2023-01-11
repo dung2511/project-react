@@ -1,7 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./home.css";
 import { Link } from "react-router-dom";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Button } from "react-bootstrap";
@@ -24,6 +23,7 @@ const banner = [
   },
 ];
 const Home = () => {
+
   document.title = "HomeBeauty";
   const formatPrice = new Intl.NumberFormat("vi", {
     style: "currency",
@@ -39,7 +39,7 @@ const Home = () => {
         setProductfeature(res.data);
       });
     } catch (error) {
-    console.log(error);
+      console.log(error);
     }
   }, []);
   return (
@@ -69,7 +69,12 @@ const Home = () => {
             return (
               <Card className="home-item-product-feature" key={index}>
                 <div>
-                  <img alt={item.name} title={item.name} src={item.url} width="100%" />
+                  <img
+                    alt={item.name}
+                    title={item.name}
+                    src={item.url}
+                    width="100%"
+                  />
                   <CardBody>
                     <CardTitle className="home-item-feature-name">
                       {item.name}

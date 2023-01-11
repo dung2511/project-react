@@ -110,9 +110,10 @@ const Product = () => {
                           <div className="home-btn-item-product">
                             <Button
                               className="home-add-to-card"
-                              onClick={() =>
-                                dispatch({ type: "ADD", payload: item })
-                              }
+                              onClick={() => {
+                                dispatch({ type: "ADD", payload: item });
+                                
+                              }}
                             >
                               Add to Cart
                             </Button>

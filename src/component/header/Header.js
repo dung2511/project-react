@@ -54,16 +54,6 @@ const mainNav = [
 ];
 
 const Header = () => {
-
-
-  // const click = () => {
-  //   mainNav.map((item) => {
-  //     if (item.display === "Sản phẩm") {
-  //       window.location.href = "/product";
-  //     }
-  //   });
-  // };
-
   const Global = useContext(Cartcontext);
   return (
     <>
@@ -73,7 +63,7 @@ const Header = () => {
             <Container>
               <Navbar.Brand>
                 <div className="header__logo">
-                  <Link className="header-logo">
+                  <Link className="header-logo" to={"/"}>
                     <img src="../assets/image/logo-web.png" alt="" />
                   </Link>
                 </div>
