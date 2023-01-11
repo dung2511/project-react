@@ -74,7 +74,7 @@ const PaymentForm = () => {
   }, [city]);
   return (
     <div className="col-md-8 order-md-1">
-      <h4 className="mb-3">Billing address</h4>
+      <h4 className="mb-3">Thông tin giao hàng</h4>
       <form
         action={"checkout"}
         onSubmit={handleSubmit(onHandleSubmit)}
@@ -219,7 +219,7 @@ const PaymentForm = () => {
           <input
             onChange={(e) => setNote(e.target.value)}
             type="text"
-            className="form-control"
+            className="form-control form-note"
             id="note"
             placeholder="Ghi chú"
           />

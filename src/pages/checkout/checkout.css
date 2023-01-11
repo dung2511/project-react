@@ -62,9 +62,15 @@
   display: none;
 }
 .product__image {
-width: 15%;
+  width: 15%;
+}
+.form-not {
+  width: 6em;
 }
 @media only screen and (max-width: 768px) {
+  .form-not {
+    width: 5em;
+  }
   #checkout {
     padding: 0 48px;
   }

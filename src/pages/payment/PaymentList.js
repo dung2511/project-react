@@ -37,7 +37,7 @@ const PaymentList = () => {
           })}
 
         <li className="list-group-item d-flex justify-content-between">
-          <span>Total (USD)</span>
+          <span>Tổng cộng</span>
           <strong>{formatPrice.format(total)}</strong>
         </li>
       </ul>
