@@ -144,22 +144,23 @@ const CheckOut = () => {
                         </tbody>
                       </table>
                     </div>
-                    <div className="order-summary__section">
-                      <table className="total-line-table">
-                        <tbody className="total-line-table__tbody">
-                          <tr className="total-line total-line--subtotal">
-                            <th className="total-line__name">Tạm tính</th>
-                            <td className="total-line__price">
-                              {formatPrice.format(total)}
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
+
                     <hr className="my-4" />
                   </div>
                 );
               })}
+            <div className="order-summary__section">
+              <table className="total-line-table">
+                <tbody className="total-line-table__tbody">
+                  <tr className="total-line total-line--subtotal">
+                    <th className="total-line__name">Tạm tính</th>
+                    <td className="total-line__price">
+                      {formatPrice.format(total)}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             <div className="order-summary__section">
               <table className="total-line-table">
                 <tbody className="total-line-table__tbody">
