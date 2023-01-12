@@ -3,8 +3,9 @@ import "./home.css";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { Card, CardBody, CardText, CardTitle } from "reactstrap";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { Cartcontext } from "../../component/reducer/cartReducer";
 
 const banner = [
   {
@@ -21,7 +22,8 @@ const banner = [
   },
 ];
 const Home = () => {
-
+  const Globalstate = useContext(Cartcontext);
+  const dispatch = Globalstate.dispatch;
   document.title = "HomeBeauty";
   const formatPrice = new Intl.NumberFormat("vi", {
     style: "currency",
@@ -64,6 +66,7 @@ const Home = () => {
         </h3>
         {productfeature &&
           productfeature.map((item, index) => {
+            item.quantity = 1;
             return (
               <Card className="home-item-product-feature" key={index}>
                 <div>
@@ -79,7 +82,14 @@ const Home = () => {
                     </CardTitle>
                     <CardText>{formatPrice.format(item.price)}</CardText>
                     <div className="home-btn-item-product">
-                      <Button className="home-add-to-card">Thêm vào giỏ</Button>
+                      <Button
+                        onClick={() => {
+                          dispatch({ type: "ADD", payload: item });
+                        }}
+                        className="home-add-to-card"
+                      >
+                        Thêm vào giỏ
+                      </Button>
                       <Button className="home-buy-now">
                         <Link to="/">Mua ngay</Link>
                       </Button>

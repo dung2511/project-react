@@ -57,7 +57,6 @@ const Detail = () => {
         method: "get",
         url: `https://json-server-vercel-amber.vercel.app/product-all/${param.id}`,
       }).then(function (response) {
-        // console.log(response.data);
         setDetailProduct(response.data);
       });
     } catch (error) {

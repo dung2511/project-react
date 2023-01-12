@@ -18,7 +18,6 @@ const Category = ({ setSelectPrice, setOrder }) => {
   }, []);
 
   const handleSort = (e) => {
-    // console.log(e.target.value);
     setSelectPrice("price"); // lấy price trong từng sản phẩm
     if (e.target.value === "Mặc định") {
       setOrder(setSelectPrice);
