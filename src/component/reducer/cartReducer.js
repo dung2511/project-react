@@ -43,6 +43,8 @@ export const Context = (props) => {
   const [state, dispatch] = useReducer(reducer, []);
   const info = { state, dispatch };
   return (
-    <Cartcontext.Provider value={info}>{props.children}</Cartcontext.Provider>
+    <Cartcontext.Provider value={info}>
+      {props.children}
+      </Cartcontext.Provider>
   );
 };

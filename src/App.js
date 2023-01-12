@@ -1,7 +1,5 @@
-import { useContext } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Context } from "./component/reducer/cartReducer";
 import Cart from "./pages/cart/Cart";
 import CheckOut from "./pages/checkout/CheckOut";
 import Detail from "./pages/details/Detail";
@@ -16,7 +14,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="/product" element={<Product />} />
+        <Route path="product" element={<Product />} />
         <Route path="product/:id" element={<Detail />} />
         <Route path="cart" element={<Cart />} />
         <Route path="search/:keyword" element={<ListSearch />} />
