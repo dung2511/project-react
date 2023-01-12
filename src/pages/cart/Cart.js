@@ -1,9 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Table } from "reactstrap";
+import React, { useContext } from "react";
 import { Cartcontext } from "../../component/reducer/cartReducer";
 import "./cart.css";
 import { FaTrash } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useState } from "react";
 const Cart = () => {
   document.title = "Giỏ hàng";
   const formatPrice = new Intl.NumberFormat("vi", {
@@ -16,8 +17,6 @@ const Cart = () => {
   const total = state.reduce((total, item) => {
     return total + item.price * item.quantity;
   }, 0);
-
-
   return (
     <section className="h-100 h-custom">
       <div className="container py-5 h-100">

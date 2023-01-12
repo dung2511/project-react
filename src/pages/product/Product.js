@@ -33,8 +33,6 @@ const Product = () => {
   });
   const limit = 8;
   const [isLoading, setLoading] = useState(false);
-  const [sumProduct, setSumProduct] = useState();
-  const [page, setPages] = useState(1);
   const Globalstate = useContext(Cartcontext);
   const dispatch = Globalstate.dispatch;
   const [productAll, setproductAll] = useState("");
@@ -45,16 +43,14 @@ const Product = () => {
     try {
       axios({
         method: "get",
-        url: `http://localhost:3004/product-all?_sort=${selectPrice}&_order=${order}`,
+        url: `https://json-server-vercel-amber.vercel.app/product-all?_sort=${selectPrice}&_order=${order}`,
         param: {
-          _page: page,
           _limit: limit,
           _sort: selectPrice,
           _order: order,
         },
       }).then(function (res) {
         setproductAll(res.data);
-        setSumProduct(res.data.length);
         setLoading(false);
       });
     } catch (error) {
@@ -112,7 +108,6 @@ const Product = () => {
                               className="home-add-to-card"
                               onClick={() => {
                                 dispatch({ type: "ADD", payload: item });
-                                
                               }}
                             >
                               Add to Cart

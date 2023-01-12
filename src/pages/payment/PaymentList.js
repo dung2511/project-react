@@ -1,4 +1,6 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import { useContext } from "react";
 import { Cartcontext } from "../../component/reducer/cartReducer";
 const PaymentList = () => {

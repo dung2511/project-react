@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Cartcontext } from "../../component/reducer/cartReducer";
 import "./checkout.css";
 const CheckOut = () => {
+  document.title = "Beauty - Cảm ơn bạn đã mua hàng";
   const formatPrice = new Intl.NumberFormat("vi", {
     style: "currency",
     currency: "VND",
@@ -20,11 +21,31 @@ const CheckOut = () => {
   const [phone, setPhone] = useState();
   const [email, setEmail] = useState();
   const [address, setAdress] = useState();
-  const [note, setNote] = useState();
+  const [note, setNote] = useState("");
   const [city, setCity] = useState();
   const [district, setDistrict] = useState();
   const [commune, setCommune] = useState();
   useEffect(() => {
+    const name = JSON.parse(localStorage.getItem("name"));
+    if (name) {
+      setName(name);
+    }
+    const phone = JSON.parse(localStorage.getItem("phone"));
+    if (phone) {
+      setPhone(phone);
+    }
+    const email = JSON.parse(localStorage.getItem("email"));
+    if (email) {
+      setEmail(email);
+    }
+    const address = JSON.parse(localStorage.getItem("address"));
+    if (address) {
+      setAdress(address);
+    }
+    const note = JSON.parse(localStorage.getItem("note"));
+    if (note) {
+      setNote(note);
+    }
     const city = JSON.parse(localStorage.getItem("city"));
     if (city) {
       setCity(city);
@@ -37,7 +58,7 @@ const CheckOut = () => {
     if (commune) {
       setCommune(commune);
     }
-  }, [name, phone, email, note, address, city, district, commune]);
+  }, []);
   return (
     <div id="checkout">
       <section className="checkout__info">
@@ -54,7 +75,7 @@ const CheckOut = () => {
             <h2 className="section__title">Cảm ơn bạn đã đặt hàng</h2>
 
             <p className="section__text">
-              Một email xác nhận đã được gửi tới 123@gmail.com. <br />
+              Một email xác nhận đã được gửi tới {email} <br />
               Xin vui lòng kiểm tra email của bạn
             </p>
           </div>
@@ -67,9 +88,9 @@ const CheckOut = () => {
               <div className="row">
                 <div className="col col--md-two">
                   <h3>Thông tin khách hàng</h3>
-                  <p>Họ tên:{name} </p>
+                  <p>Họ tên: {name} </p>
 
-                  <p>Email:{email} </p>
+                  <p>Email: {email} </p>
 
                   <p>SĐT: {phone}</p>
                 </div>
@@ -91,7 +112,7 @@ const CheckOut = () => {
             <div className="section__content section__content--bordered">
               <div className="row">
                 <div className="col col--md-two">
-                  <h3>Ghi chú</h3>
+                  <h3>Ghi chú:</h3>
 
                   <p>{note}</p>
                 </div>

@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
 import "./header.css";
 import React, { useContext } from "react";
-import InputSearch from "../../pages/search/InputSearch";
+import InputSearch from "./InputSearch";
 import { FaUser, FaShoppingCart } from "react-icons/fa";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";

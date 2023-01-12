@@ -8,7 +8,7 @@ const Category = ({ setSelectPrice, setOrder }) => {
     try {
       axios({
         method: "get",
-        url: `http://localhost:3004/sort_price`,
+        url: `https://json-server-vercel-amber.vercel.app/sort_price`,
       }).then(function (res) {
         setListSort(res.data);
       });

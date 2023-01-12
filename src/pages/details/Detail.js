@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Col, Row } from "reactstrap";
 import "./details.css";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
@@ -56,7 +55,7 @@ const Detail = () => {
     try {
       axios({
         method: "get",
-        url: `http://localhost:3004/product-all/${param.id}`,
+        url: `https://json-server-vercel-amber.vercel.app/product-all/${param.id}`,
       }).then(function (response) {
         // console.log(response.data);
         setDetailProduct(response.data);

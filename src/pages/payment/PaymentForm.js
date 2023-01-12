@@ -1,16 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { Link } from "react-router-dom";
 const PaymentForm = () => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
-  const onHandleSubmit = (e) => {
-    console.log(e);
+  const onHandleSubmit = () => {
+    localStorage.setItem("name", JSON.stringify(name));
+    localStorage.setItem("phone", JSON.stringify(phone));
+    localStorage.setItem("email", JSON.stringify(email));
+    localStorage.setItem("address", JSON.stringify(address));
+    localStorage.setItem("note", JSON.stringify(note));
   };
   const handleChangeCity = (e) => {
     e.preventDefault();
@@ -38,28 +35,19 @@ const PaymentForm = () => {
     e.preventDefault();
     for (let i in commune) {
       if (commune[i].codename === e.target.value) {
-        localStorage.setItem("commune", JSON.stringify(commune[i].name));
+        localStorage.setItem("district", JSON.stringify(commune[i].name));
       }
     }
   };
 
-  const [name, setName] = useState();
-  const [phone, setPhone] = useState();
-  const [email, setEmail] = useState();
-  const [address, setAdress] = useState();
-  const [note, setNote] = useState();
-  const [city, setCity] = useState();
-  const [district, setDistrict] = useState();
-  const [commune, setCommune] = useState();
-
-  useEffect(() => {
-    localStorage.setItem("name", JSON.stringify(name));
-    localStorage.setItem("phone", JSON.stringify(phone));
-    localStorage.setItem("email", JSON.stringify(email));
-    localStorage.setItem("address", JSON.stringify(address));
-    localStorage.setItem("note", note);
-  }, [name, phone, email, note, address, city, district, commune]);
-  const onChangeLocal = (e) => {};
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAdress] = useState("");
+  const [note, setNote] = useState("");
+  const [city, setCity] = useState("");
+  const [district, setDistrict] = useState("");
+  const [commune, setCommune] = useState("")
   useEffect(() => {
     try {
       axios({
@@ -71,14 +59,14 @@ const PaymentForm = () => {
     } catch (error) {
       console.log(error);
     }
-  }, [city]);
+  }, []);
   return (
     <div className="col-md-8 order-md-1">
       <h4 className="mb-3">Thông tin giao hàng</h4>
       <form
-        action={"checkout"}
-        onSubmit={handleSubmit(onHandleSubmit)}
         className="needs-validation"
+        onSubmit={onHandleSubmit}
+        action="/checkout"
       >
         <div className="row">
           <div className="col-md-6 mb-3">
@@ -121,6 +109,7 @@ const PaymentForm = () => {
             className="form-control"
             id="email"
             placeholder="you@example.com"
+            required
           />
           <div className="invalid-feedback">
             Please enter a valid email address for shipping updates.
@@ -203,7 +192,7 @@ const PaymentForm = () => {
             Địa chỉ
           </label>
           <input
-            onChange={(e) => setAdress(e.target.value)}
+             onChange={(e) => setAdress(e.target.value)}
             type="text"
             className="form-control"
             id="address"
@@ -217,7 +206,7 @@ const PaymentForm = () => {
             Ghi chú <span className="text-muted">(Tùy chọn)</span>
           </label>
           <input
-            onChange={(e) => setNote(e.target.value)}
+             onChange={(e) => setNote(e.target.value)}
             type="text"
             className="form-control form-note"
             id="note"
@@ -225,8 +214,8 @@ const PaymentForm = () => {
           />
         </div>
         <hr className="mb-4" />
-        <button type="button" className="btn btn-dark px-4 rounded-pill">
-          <Link to={"/checkout"}>Đặt hàng</Link>
+        <button type="submit" className="btn btn-dark px-4">
+          Đặt hàng
         </button>
       </form>
     </div>

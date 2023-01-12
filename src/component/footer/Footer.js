@@ -1,7 +1,9 @@
 import React from "react";
+import { useContext } from "react";
 import { Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Col } from "reactstrap";
+import { Context } from "../reducer/cartReducer";
 import "./footer.css";
 
 const info = [
@@ -67,7 +69,11 @@ const Footer = () => {
           <h4>Beaty Nội thất</h4>
           {info &&
             info.map((item, index) => {
-              return <p className="footer__item" key={index}>{item.content}</p>;
+              return (
+                <p className="footer__item" key={index}>
+                  {item.content}
+                </p>
+              );
             })}
         </div>
         <div className="footer_item">

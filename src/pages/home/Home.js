@@ -1,8 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./home.css";
 import { Link } from "react-router-dom";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { Button } from "react-bootstrap";
 import { Card, CardBody, CardText, CardTitle } from "reactstrap";
 import { useEffect, useState } from "react";
@@ -34,7 +32,7 @@ const Home = () => {
     try {
       axios({
         method: "get",
-        url: "http://localhost:3004/product-feature",
+        url: "https://json-server-vercel-amber.vercel.app/product-feature",
       }).then(function (res) {
         setProductfeature(res.data);
       });
