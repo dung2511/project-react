@@ -12,10 +12,11 @@ const CheckOut = () => {
     currency: "VND",
   });
   const Globalstate = useContext(Cartcontext);
-  const state = Globalstate.state;
+  const state = Globalstate.state
   const total = state.reduce((total, item) => {
     return total + item.price * item.quantity;
   }, 0);
+  console.log(Globalstate);
   const [name, setName] = useState();
   const [phone, setPhone] = useState();
   const [email, setEmail] = useState();

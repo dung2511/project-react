@@ -1,5 +1,4 @@
 import { createContext, useReducer } from "react";
-
 export const Cartcontext = createContext();
 export const Context = (props) => {
   const reducer = (state, action) => {
@@ -43,8 +42,6 @@ export const Context = (props) => {
   const [state, dispatch] = useReducer(reducer, []);
   const info = { state, dispatch };
   return (
-    <Cartcontext.Provider value={info}>
-      {props.children}
-      </Cartcontext.Provider>
+    <Cartcontext.Provider value={info}>{props.children}</Cartcontext.Provider>
   );
 };

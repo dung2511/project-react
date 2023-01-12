@@ -67,6 +67,12 @@
 .form-not {
   width: 6em;
 }
+.btn--large {
+  transition: 0.7s !important;
+}
+.btn--large:hover {
+  color: white !important;
+}
 @media only screen and (max-width: 768px) {
   .form-not {
     width: 5em;
