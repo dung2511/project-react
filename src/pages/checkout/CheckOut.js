@@ -211,7 +211,7 @@ const CheckOut = () => {
                   <tr className="total-line total-line--subtotal">
                     <th className="total-line__name">Tạm tính</th>
                     <td className="total-line__price">
-                      {formatPrice.format(2000000)}
+                      {formatPrice.format(total)}
                     </td>
                   </tr>
                 </tbody>
@@ -228,7 +228,7 @@ const CheckOut = () => {
                     </th>
                     <td className="total-line__price">
                       <span className="payment-due__price">
-                        {formatPrice.format(2000000)}
+                        {formatPrice.format(total)}
                       </span>
                     </td>
                   </tr>
