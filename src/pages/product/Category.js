@@ -31,7 +31,6 @@ const Category = ({ setSelectPrice, setOrder }) => {
     <select onChange={handleSort} className="product-category_select">
       {listSort &&
         listSort.map((value, index) => {
-          // console.log(value);
           return (
             <option key={index} value={value} className="product-category-item">
               {value}
