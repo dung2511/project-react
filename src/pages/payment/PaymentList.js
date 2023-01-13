@@ -10,6 +10,7 @@ const PaymentList = () => {
   });
   const Globalstate = useContext(Cartcontext);
   const state = Globalstate.state;
+  console.log(state);
   const dispatch = Globalstate.dispatch;
   const total = state.reduce((total, item) => {
     return total + item.price * item.quantity;

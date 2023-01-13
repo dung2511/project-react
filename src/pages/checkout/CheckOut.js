@@ -13,7 +13,7 @@ const CheckOut = () => {
   });
   const Globalstate = useContext(Cartcontext);
   const state = Globalstate.state;
-  console.log(state)
+  console.log(state);
   const total = state.reduce((total, item) => {
     return total + item.price * item.quantity;
   }, 0);
@@ -132,7 +132,7 @@ const CheckOut = () => {
                 <h3>Đơn hàng ({state.length})</h3>
               </div>
             </div>
-            {/* {state &&
+            {state.length > 0 &&
                 state.map((item, index) => {
                   return (
                     <div className="order-summary__sections" key={index}>
@@ -170,8 +170,8 @@ const CheckOut = () => {
                       <hr className="my-4" />
                     </div>
                   );
-                })} */}
-            <div className="order-summary__sections">
+                })}
+            {/* <div className="order-summary__sections">
               <div className="order-summary__section order-summary__section--product-list order-summary__section--is-scrollable order-summary--collapse-element">
                 <table className="product-table">
                   <tbody>
@@ -204,7 +204,7 @@ const CheckOut = () => {
               </div>
 
               <hr className="my-4" />
-            </div>
+            </div> */}
             <div className="order-summary__section">
               <table className="total-line-table">
                 <tbody className="total-line-table__tbody">

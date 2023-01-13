@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { Link } from "react-router-dom";
 const PaymentForm = () => {
   const onHandleSubmit = () => {
     localStorage.setItem("name", JSON.stringify(name));
@@ -47,7 +48,7 @@ const PaymentForm = () => {
   const [note, setNote] = useState("");
   const [city, setCity] = useState("");
   const [district, setDistrict] = useState("");
-  const [commune, setCommune] = useState("")
+  const [commune, setCommune] = useState("");
   useEffect(() => {
     try {
       axios({
@@ -66,7 +67,7 @@ const PaymentForm = () => {
       <form
         className="needs-validation"
         onSubmit={onHandleSubmit}
-        action="/checkout"
+        
       >
         <div className="row">
           <div className="col-md-6 mb-3">
@@ -192,7 +193,7 @@ const PaymentForm = () => {
             Địa chỉ
           </label>
           <input
-             onChange={(e) => setAdress(e.target.value)}
+            onChange={(e) => setAdress(e.target.value)}
             type="text"
             className="form-control"
             id="address"
@@ -206,7 +207,7 @@ const PaymentForm = () => {
             Ghi chú <span className="text-muted">(Tùy chọn)</span>
           </label>
           <input
-             onChange={(e) => setNote(e.target.value)}
+            onChange={(e) => setNote(e.target.value)}
             type="text"
             className="form-control form-note"
             id="note"
@@ -214,9 +215,11 @@ const PaymentForm = () => {
           />
         </div>
         <hr className="mb-4" />
-        <button type="submit" className="btn btn-dark px-4">
-          Đặt hàng
-        </button>
+        <Link to={"/checkout"}>
+          <button type="submit" className="btn btn-dark px-4">
+            Đặt hàng
+          </button>
+        </Link>
       </form>
     </div>
   );
