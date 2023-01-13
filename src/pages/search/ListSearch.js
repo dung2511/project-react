@@ -78,10 +78,10 @@ const ListSearch = () => {
                               }}
                               className="home-add-to-card"
                             >
-                              Add to Cart
+                              Thêm giỏ hàng
                             </Button>
                             <Button className="home-buy-now">
-                              <div>Buy Now</div>
+                              <div>Mua ngay</div>
                             </Button>
                           </div>
                         </CardBody>

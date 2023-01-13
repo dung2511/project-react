@@ -64,19 +64,7 @@ const Product = () => {
       </section>
       <section className="product">
         <div className="product-item">
-          {/* <div className="product__list">
-            <ul className="product-menu-item">
-              <h5>Danh sách sản phẩm</h5>
-              {list &&
-                list.map((item, index) => {
-                  return (
-                    <li key={index} className="product-list-menu-item">
-                      <Link to={item.path}>{item.display}</Link>
-                    </li>
-                  );
-                })}
-            </ul>
-          </div> */}
+         
           <div className="product__list__item">
             <h3>Sản phẩm</h3>
             <div className="product_category">
@@ -110,10 +98,10 @@ const Product = () => {
                                 dispatch({ type: "ADD", payload: item });
                               }}
                             >
-                              Add to Cart
+                              Thêm giỏ hàng
                             </Button>
                             <Button className="home-buy-now">
-                              <div>Buy Now</div>
+                              <div>Mua ngay</div>
                             </Button>
                           </div>
                         </CardBody>
