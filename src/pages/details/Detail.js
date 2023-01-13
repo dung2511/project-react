@@ -7,6 +7,8 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import { useContext } from "react";
+import { Cartcontext } from "../../component/reducer/cartReducer";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -40,6 +42,8 @@ function a11yProps(index) {
   };
 }
 const Detail = () => {
+  const Globalstate = useContext(Cartcontext);
+  const dispatch = Globalstate.dispatch;
   const formatPrice = new Intl.NumberFormat("vi", {
     style: "currency",
     currency: "VND",
@@ -104,103 +108,102 @@ const Detail = () => {
       </section>
       <section className="detail-container">
         <div className="detail-product d-flex">
-            <div className="detail_product__img">
-              <div className="detail-product-img_0">
-                <img
-                  className="detail-img_feature"
-                  src={detailProduct.img_detail_1}
-                  alt={detailProduct.name}
-                />
+          <div className="detail_product__img">
+            <div className="detail-product-img_0">
+              <img
+                className="detail-img_feature"
+                src={detailProduct.img_detail_1}
+                alt={detailProduct.name}
+              />
+            </div>
+            <div className="detail-product-img_2">
+              <div className="detail-item-img active ">
+                <img src={detailProduct.img_detail_1} />
               </div>
-              <div className="detail-product-img_2">
-                <div className="detail-item-img active ">
-                  <img src={detailProduct.img_detail_1} />
-                </div>
-                <div className="detail-item-img">
-                  <img src={detailProduct.img_detail_2} />
-                </div>
-                <div className="detail-item-img">
-                  <img src={detailProduct.img_detail_3} />
-                </div>
-                <div className="detail-item-img">
-                  <img src={detailProduct.img_detail_4} />
-                </div>
+              <div className="detail-item-img">
+                <img src={detailProduct.img_detail_2} />
+              </div>
+              <div className="detail-item-img">
+                <img src={detailProduct.img_detail_3} />
+              </div>
+              <div className="detail-item-img">
+                <img src={detailProduct.img_detail_4} />
               </div>
             </div>
-            <div className="detail__product__details">
-              <div className="detail-product-title">
-                <div className="detail-product_name">
-                  <h1>{detailProduct.name}</h1>
+          </div>
+          <div className="detail__product__details">
+            <div className="detail-product-title">
+              <div className="detail-product_name">
+                <h1>{detailProduct.name}</h1>
+              </div>
+              <div className="detail-product-feature">
+                <div className="detail-product_feature d-flex">
+                  Thương hiệu:{" "}
+                  <p className="detail-product_update_1">
+                    {detailProduct.feature}
+                  </p>
                 </div>
-                <div className="detail-product-feature">
-                  <div className="detail-product_feature d-flex">
-                    Thương hiệu:{" "}
-                    <p className="detail-product_update_1">
-                      {detailProduct.feature}
-                    </p>
-                  </div>
-                  <div className="detail-product_qty d-flex">
-                    Tình trạng: <p className="detail-product_update_2"></p>
-                  </div>
-                </div>
-                <div className="detail-product_price">
-                  {formatPrice.format(detailProduct.price)}
-                </div>
-                <div className="detail-product_detail">
-                  <div className="detail-product_material d-flex align-item-end">
-                    <h5 className="mb-0">Vật liệu</h5>
-                    <p className="detail_material mb-0">
-                      {" "}
-                      {detailProduct.material}
-                    </p>
-                  </div>
-                  <div className="detail-product_size d-flex align-item-end ">
-                    <h5 className="mb-0">Kích thước</h5>
-                    <p className="detail_size mb-0"> {detailProduct.size}</p>
-                  </div>
-                </div>
-                <div className="detail-btn-amount">
-                  <button className="detail-btn">-</button>
-                  <input
-                    type="number"
-                    onChange={handleOnchangInp}
-                    name="quantity"
-                    defaultValue={qty}
-                  />
-                  <button className="detail-btn">+</button>
-                </div>
-                <div className="detail-add-buy d-flex">
-                  <Link to={"/"} className="detail-buy_now">
-                    <button type="">Mua ngay</button>
-                  </Link>
-                  <button className="detail-add_to_cart">Thêm giỏ hàng</button>
+                <div className="detail-product_qty d-flex">
+                  Tình trạng: <p className="detail-product_update_2"></p>
                 </div>
               </div>
-              <div className="detail-product_transport">
-                <Box sx={{ width: "100%" }}>
-                  <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-                    <Tabs
-                      value={value}
-                      onChange={handleChange}
-                      aria-label="basic tabs example"
-                    >
-                      <Tab label="Mô tả" {...a11yProps(0)} />
-                      <Tab label="Vận chuyển" {...a11yProps(1)} />
-                    </Tabs>
-                  </Box>
-                  <TabPanel value={value} index={0}>
-                    - {detailProduct.material} <br />-{" "}
-                    {detailProduct.kich_thuoc} <br /> - {detailProduct.bao_hanh}
-                  </TabPanel>
-                  <TabPanel value={value} index={1}>
-                    GIAO HÀNG TẬN NƠI <br /> - MIỄN PHÍ giao hàng trong các Quận
-                    nội thành Tp.Hồ Chí Minh và Hà Nội, áp dụng cho các đơn hàng
-                    trị giá trên 5 triệu. <br />- Đối với khu vực các tỉnh lân
-                    cận: Tính phí hợp lý theo dựa trên quãng đường vận chuyển
-                  </TabPanel>
+              <div className="detail-product_price">
+                {formatPrice.format(detailProduct.price)}
+              </div>
+              <div className="detail-product_detail">
+                <div className="detail-product_material d-flex align-item-end">
+                  <h5 className="mb-0">Vật liệu</h5>
+                  <p className="detail_material mb-0">
+                    {" "}
+                    {detailProduct.material}
+                  </p>
+                </div>
+                <div className="detail-product_size d-flex align-item-end ">
+                  <h5 className="mb-0">Kích thước</h5>
+                  <p className="detail_size mb-0"> {detailProduct.size}</p>
+                </div>
+              </div>
+           
+              <div className="detail-add-buy d-flex">
+                <Link to={"/"} className="detail-buy_now">
+                  <button type="">Mua ngay</button>
+                </Link>
+                <button
+                  onClick={() => {
+                    detailProduct.quantity = 1;
+                    dispatch({ type: "ADD", payload: detailProduct });
+                  }}
+                  className="detail-add_to_cart"
+                >
+                  Thêm giỏ hàng
+                </button>
+              </div>
+            </div>
+            <div className="detail-product_transport">
+              <Box sx={{ width: "100%" }}>
+                <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                  <Tabs
+                    value={value}
+                    onChange={handleChange}
+                    aria-label="basic tabs example"
+                  >
+                    <Tab label="Mô tả" {...a11yProps(0)} />
+                    <Tab label="Vận chuyển" {...a11yProps(1)} />
+                  </Tabs>
                 </Box>
-              </div>
+                <TabPanel value={value} index={0}>
+                  - {detailProduct.material} <br />- {detailProduct.kich_thuoc}{" "}
+                  <br /> - {detailProduct.bao_hanh}
+                </TabPanel>
+                <TabPanel value={value} index={1}>
+                  GIAO HÀNG TẬN NƠI <br /> - MIỄN PHÍ giao hàng trong các Quận
+                  nội thành Tp.Hồ Chí Minh và Hà Nội, áp dụng cho các đơn hàng
+                  trị giá trên 5 triệu. <br />- Đối với khu vực các tỉnh lân
+                  cận: Tính phí hợp lý theo dựa trên quãng đường vận chuyển
+                </TabPanel>
+              </Box>
             </div>
+          </div>
         </div>
       </section>
     </main>

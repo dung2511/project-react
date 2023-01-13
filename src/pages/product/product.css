@@ -31,7 +31,7 @@ li.product-list-menu-item:hover a {
 .product-list-item {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 .product-item-all-list {
