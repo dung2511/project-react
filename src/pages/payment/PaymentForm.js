@@ -64,11 +64,7 @@ const PaymentForm = () => {
   return (
     <div className="col-md-8 order-md-1">
       <h4 className="mb-3">Thông tin giao hàng</h4>
-      <form
-        className="needs-validation"
-        onSubmit={onHandleSubmit}
-        
-      >
+      <form className="needs-validation" onSubmit={onHandleSubmit}>
         <div className="row">
           <div className="col-md-6 mb-3">
             <label htmlFor="name" className="form-label">
@@ -214,7 +210,7 @@ const PaymentForm = () => {
             placeholder="Ghi chú"
           />
         </div>
-        <hr className="mb-4" />
+        <hr className="mb-4" />{" "}
         <Link to={"/checkout"}>
           <button type="submit" className="btn btn-dark px-4">
             Đặt hàng

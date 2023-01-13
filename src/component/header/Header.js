@@ -19,29 +19,6 @@ const mainNav = [
   {
     display: "Sản phẩm",
     path: "/product",
-
-    item: [
-      {
-        display:"Tất cả sản phẩm",
-        path:"/product"
-      },
-      {
-        display: "Sản phẩm nổi bật",
-        path: "/san-pham-noi-bat",
-      },
-      {
-        display: "Sản phẩm khuyến mãi",
-        path: "/san-pham-noi-bat",
-      },
-      {
-        display: "Nội thất gia đình",
-        path: "/san-pham-noi-bat",
-      },
-      {
-        display: "Nội thất văn phòng",
-        path: "/san-pham-noi-bat",
-      },
-    ],
   },
   {
     display: "Giới thiệu",
@@ -73,31 +50,11 @@ const Header = () => {
                 <Nav className="me-auto">
                   {mainNav &&
                     mainNav.map((item, index) => {
-                      if (item.item) {
-                        return (
-                          <NavDropdown
-                            key={index}
-                            title={item.display}
-                            id="basic-nav-dropdown"
-                          
-                          >
-                            {item.item &&
-                              item.item.map((value, ind) => {
-                                return (
-                                  <NavDropdown.Item key={ind} href={value.path}>
-                                    {value.display}
-                                  </NavDropdown.Item>
-                                );
-                              })}
-                          </NavDropdown>
-                        );
-                      } else {
-                        return (
-                          <Nav.Link key={index} href={item.path}>
-                            {item.display}
-                          </Nav.Link>
-                        );
-                      }
+                      return (
+                        <Nav.Link key={index} href={item.path}>
+                          {item.display}
+                        </Nav.Link>
+                      );
                     })}
                 </Nav>
                 <div className="header-input-search">
