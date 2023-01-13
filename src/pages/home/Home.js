@@ -70,12 +70,9 @@ const Home = () => {
             return (
               <Card className="home-item-product-feature" key={index}>
                 <div>
-                  <img
-                    alt={item.name}
-                    title={item.name}
-                    src={item.url}
-                    width="100%"
-                  />
+                  <Link to={`/product/${item.id}`}>
+                    <img alt="Card cap" src={item.url} width="100%" />
+                  </Link>
                   <CardBody>
                     <CardTitle className="home-item-feature-name">
                       {item.name}
@@ -109,7 +106,9 @@ const Home = () => {
             return (
               <Card className="home-item-product-feature" key={index}>
                 <div>
-                  <img alt="Card cap" src={item.url} width="100%" />
+                  <Link to={`/product/${item.id}`}>
+                    <img alt="Card cap" src={item.url} width="100%" />
+                  </Link>
                   <CardBody>
                     <CardTitle className="home-item-feature-name">
                       {item.name}
@@ -136,7 +135,9 @@ const Home = () => {
             return (
               <Card className="home-item-product-feature" key={index}>
                 <div>
-                  <img alt="Card cap" src={item.url} width="100%" />
+                  <Link to={`/product/${item.id}`}>
+                    <img alt="Card cap" src={item.url} width="100%" />
+                  </Link>
                   <CardBody>
                     <CardTitle className="home-item-feature-name">
                       {item.name}
