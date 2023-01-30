@@ -8,6 +8,7 @@ import Layout from "./pages/Layout";
 import Payment from "./pages/payment/Payment";
 import Product from "./pages/product/Product";
 import ListSearch from "./pages/search/ListSearch";
+import Login from "./pages/user/Login";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="search/:keyword" element={<ListSearch />} />
         <Route path="payment" element={<Payment />} />
         <Route path="checkout" element={<CheckOut />} />
+        <Route path="login" element={<Login />} />
       </Route>
     </Routes>
   );
