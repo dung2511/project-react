@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useState } from "react";
-import { useRef } from "react";
 import { Link } from "react-router-dom";
 import "./register.scss";
 const Register = () => {
-  const useRef = useRef();
+  const userRef = useRef();
   const errRef = useRef();
 
   const [user, setUser] = useState();
