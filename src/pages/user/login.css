@@ -122,14 +122,14 @@ input[type="submit"] {
   --loginBorderRadus: 0.25rem;
   --loginColor: #eee;
 
-  --loginInputBackgroundColor: #3b4148;
-  --loginInputHoverBackgroundColor: #434a52;
+  --loginInputBackgroundColor: #a7a7a7;
+  --loginInputHoverBackgroundColor: #ffffff;
 
-  --loginLabelBackgroundColor: #363b41;
+  --loginLabelBackgroundColor: #6e6d6d;
 
-  --loginSubmitBackgroundColor: #ea4c88;
+  --loginSubmitBackgroundColor: #242323;
   --loginSubmitColor: #eee;
-  --loginSubmitHoverBackgroundColor: #d44179;
+  --loginSubmitHoverBackgroundColor: hwb(210 31% 68%);
 }
 
 .login {

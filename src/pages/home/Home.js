@@ -126,35 +126,6 @@ const Home = () => {
             );
           })}
       </section>
-      <section className="home-product-feature">
-        <h3 className="home-title-section">
-          <Link to={"/all-product-feature"}>Sản Phẩm Nổi Bật</Link>
-        </h3>
-        {productfeature &&
-          productfeature.map((item, index) => {
-            return (
-              <Card className="home-item-product-feature" key={index}>
-                <div>
-                  <Link to={`/product/${item.id}`}>
-                    <img alt="Card cap" src={item.url} width="100%" />
-                  </Link>
-                  <CardBody>
-                    <CardTitle className="home-item-feature-name">
-                      {item.name}
-                    </CardTitle>
-                    <CardText>{formatPrice.format(item.price)}</CardText>
-                    <div className="home-btn-item-product">
-                      <Button className="home-add-to-card">Thêm vào giỏ</Button>
-                      <Button className="home-buy-now">
-                        <Link to="/">Mua ngay</Link>
-                      </Button>
-                    </div>
-                  </CardBody>
-                </div>
-              </Card>
-            );
-          })}
-      </section>
     </main>
   );
 };

@@ -9,16 +9,16 @@ import "./footer.css";
 const info = [
   {
     content:
-      "Với kinh nghiệm hơn 0 năm trong ngành nội thất, Beaty Nội Thất tự hào là cung cấp những mẫu sản phẩm nội thất tốt nhất Việt Nam",
+      "Với kinh nghiệm hơn 0 năm trong ngành nội thất, Beauty Nội Thất tự hào là cung cấp những mẫu sản phẩm nội thất tốt nhất Việt Nam",
   },
   {
-    content: "Quận Nam Từ Liêm: tầng 12A, Viwaseen Tower, 48 Tố Hữu",
+    content: "Địa chỉ: Quận Nam Từ Liêm: tầng 12A, Viwaseen Tower, 48 Tố Hữu",
   },
   {
-    content: "0902200090",
+    content: "SĐT: 0902200090",
   },
   {
-    content: "support@beauty.com",
+    content: "Email: support@beauty.com",
   },
 ];
 const csud = [

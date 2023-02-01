@@ -1,7 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./login.css";
 import { FaUser, FaLock } from "react-icons/fa";
+import { child, get, ref } from "firebase/database";
+import { database } from "../../firebase";
+import { useHref } from "react-router";
+import { Link } from "react-router-dom";
 const Login = () => {
+  const history = useHref();
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
+  document.title = "Đăng nhập";
+  const dbRef = ref(database);
+  get(child(dbRef, `user`))
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        setUsername(snapshot.val());
+      } else {
+        console.log("No data available");
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
   return (
     <div className="align">
       <div className="grid">
@@ -49,7 +70,8 @@ const Login = () => {
         </form>
 
         <p className="text--center">
-          Not a member? <a href="#">Sign up now</a> <svg className="icon"></svg>
+          Not a member? <Link to={"/sign-up"}>Sign up now</Link>{" "}
+          <svg className="icon"></svg>
         </p>
       </div>
 
