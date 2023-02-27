@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Protected from "./component/protected/Protected";
 import Cart from "./pages/cart/Cart";
 import CheckOut from "./pages/checkout/CheckOut";
 import Detail from "./pages/details/Detail";
@@ -17,10 +18,31 @@ function App() {
         <Route index element={<Home />} />
         <Route path="product" element={<Product />} />
         <Route path="product/:id" element={<Detail />} />
-        <Route path="cart" element={<Cart />} />
+        <Route
+          path="cart"
+          element={
+            <Protected>
+              <Cart />
+            </Protected>
+          }
+        />
         <Route path="search/:keyword" element={<ListSearch />} />
-        <Route path="payment" element={<Payment />} />
-        <Route path="checkout" element={<CheckOut />} />
+        <Route
+          path="payment"
+          element={
+            <Protected>
+              <Payment />
+            </Protected>
+          }
+        />
+        <Route
+          path="checkout"
+          element={
+            <Protected>
+              <CheckOut />
+            </Protected>
+          }
+        />
         <Route path="login" element={<Login />} />
       </Route>
     </Routes>

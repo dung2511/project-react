@@ -1,13 +1,17 @@
 import { createContext, useReducer } from "react";
+import { UserAuth } from "./AuthContext";
+import { useNavigate } from "react-router";
 export const Cartcontext = createContext();
 export const Context = (props) => {
+  const navigate = useNavigate();
+  const { user } = UserAuth();
   const reducer = (state, action) => {
     switch (action.type) {
       case "ADD":
         const tempstate = state.filter((item) => action.payload.id === item.id);
-        if (tempstate.length > 0) {
+        if (tempstate.length > 0 && user) {
           return state;
-        } else {
+        } else{
           return [...state, action.payload];
         }
       case "INCREASE":
@@ -40,7 +44,7 @@ export const Context = (props) => {
   };
   const [state, dispatch] = useReducer(reducer, []);
   const info = { state, dispatch };
-  
+
   return (
     <Cartcontext.Provider value={info}>{props.children}</Cartcontext.Provider>
   );
