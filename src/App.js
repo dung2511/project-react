@@ -9,7 +9,6 @@ import Payment from "./pages/payment/Payment";
 import Product from "./pages/product/Product";
 import ListSearch from "./pages/search/ListSearch";
 import Login from "./pages/user/Login";
-import Register from "./pages/user/Register";
 
 function App() {
   return (
@@ -23,7 +22,6 @@ function App() {
         <Route path="payment" element={<Payment />} />
         <Route path="checkout" element={<CheckOut />} />
         <Route path="login" element={<Login />} />
-        <Route path="sign-up" element={<Register />} />
       </Route>
     </Routes>
   );

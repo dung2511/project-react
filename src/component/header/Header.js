@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
 import "./header.css";
@@ -10,7 +10,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Badge } from "reactstrap";
 import { Cartcontext } from "../reducer/cartReducer";
-
+import { UserAuth } from "../reducer/AuthContext";
 const mainNav = [
   {
     display: "Trang chủ",
@@ -31,6 +31,15 @@ const mainNav = [
 ];
 
 const Header = () => {
+  const { user, logOut } = UserAuth();
+  const navigate = useNavigate();
+  const handleSignOut = async () => {
+    try {
+      await logOut();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const Global = useContext(Cartcontext);
   return (
     <>
@@ -66,9 +75,21 @@ const Header = () => {
                     </Link>
                   </div>
                   <div className="header__user">
-                    <Link to={"/login"}>
+                    {user?.displayName ? (
+                      <div onClick={handleSignOut} className="header_login">
+                        {user.displayName}
+                      </div>
+                    ) : (
+                      <div className="header_login">
+                        <Link to={"/login"}>
+                          <FaUser className="inline" />{" "}
+                          {/* <span>Account</span> */}
+                        </Link>
+                      </div>
+                    )}
+                    {/* <Link to={"/login"}>
                       <FaUser />
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
               </Navbar.Collapse>

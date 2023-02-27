@@ -24,6 +24,7 @@ const banner = [
 const Home = () => {
   const Globalstate = useContext(Cartcontext);
   const dispatch = Globalstate.dispatch;
+
   document.title = "HomeBeauty";
   const formatPrice = new Intl.NumberFormat("vi", {
     style: "currency",

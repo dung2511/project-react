@@ -4,13 +4,16 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { Context } from "./component/reducer/cartReducer";
+import { AuthContextProvider } from "./component/reducer/AuthContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <Context>
-      <App />
-    </Context>
+    <AuthContextProvider>
+      <Context>
+        <App />
+      </Context>
+    </AuthContextProvider>
   </BrowserRouter>
 );
 
