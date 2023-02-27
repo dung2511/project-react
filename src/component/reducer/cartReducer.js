@@ -9,10 +9,10 @@ export const Context = (props) => {
     switch (action.type) {
       case "ADD":
         const tempstate = state.filter((item) => action.payload.id === item.id);
-        if (tempstate.length > 0 && user) {
-          return state;
-        } else{
+        if (tempstate.length >= 0 && user) {
           return [...state, action.payload];
+        } else {
+          navigate("/login");
         }
       case "INCREASE":
         const tempstate1 = state.map((item) => {

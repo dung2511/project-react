@@ -116,7 +116,14 @@ const Home = () => {
                     </CardTitle>
                     <CardText>{formatPrice.format(item.price)}</CardText>
                     <div className="home-btn-item-product">
-                      <Button className="home-add-to-card">Thêm vào giỏ</Button>
+                      <Button
+                        className="home-add-to-card"
+                        onClick={() => {
+                          dispatch({ type: "ADD", payload: item });
+                        }}
+                      >
+                        Thêm vào giỏ
+                      </Button>
                       <Button className="home-buy-now">
                         <Link to="/">Mua ngay</Link>
                       </Button>

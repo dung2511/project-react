@@ -6,14 +6,21 @@ import GoogleButton from "react-google-button";
 import { UserAuth } from "../../component/reducer/AuthContext";
 const Login = () => {
   document.title = "Đăng nhập";
-  const { googleSignIn } = UserAuth();
+  const navigate = useNavigate();
+  const { user,googleSignIn } = UserAuth();
   const handleGoogleSignIn = async () => {
     try {
       await googleSignIn();
+
     } catch (error) {
       console.log(error);
     }
   };
+  useEffect(()=> {
+    if(user) {
+      navigate("/")
+    }
+  })
   return (
     <div className="align">
       <div className="grid">
