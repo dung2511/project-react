@@ -18,14 +18,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="product" element={<Product />} />
         <Route path="product/:id" element={<Detail />} />
-        <Route
-          path="cart"
-          element={
-            <Protected>
-              <Cart />
-            </Protected>
-          }
-        />
+        <Route path="cart" element={<Cart />} />
         <Route path="search/:keyword" element={<ListSearch />} />
         <Route
           path="payment"
